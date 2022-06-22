@@ -21,7 +21,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.text.TextPaint;
 import android.util.Log;
 
 /**
@@ -34,8 +36,15 @@ public class TextStreamObject extends StreamObjectBase {
 
     private int numFrames;
     private Bitmap imageBitmap;
+    private Paint paint;
+    private Typeface font;
 
     public TextStreamObject() {
+        font = Typeface.create(Typeface.DEFAULT, Typeface.BOLD);
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setAlpha(255);
+        paint.setTypeface(font);
+        paint.setTextAlign(Paint.Align.LEFT);
     }
 
     @Override
@@ -60,12 +69,8 @@ public class TextStreamObject extends StreamObjectBase {
     }
 
     private Bitmap textAsBitmap(String text, float textSize, int textColor, Typeface typeface) {
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setTextSize(textSize);
         paint.setColor(textColor);
-        paint.setAlpha(255);
-        if (typeface != null) paint.setTypeface(typeface);
-        paint.setTextAlign(Paint.Align.LEFT);
 
         float baseline = -paint.ascent(); // ascent() is negative
         int width = (int) (paint.measureText(text) + 0.5f); // round

@@ -1,14 +1,18 @@
 package com.pedro.sample
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.SurfaceHolder
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.pedro.encoder.input.gl.render.filters.`object`.TextObjectFilterRender
 import com.pedro.encoder.input.video.CameraOpenException
+import com.pedro.encoder.utils.gl.TranslateTo
 import com.pedro.rtsp.utils.ConnectCheckerRtsp
 import com.pedro.rtspserver.RtspServerCamera1
 import kotlinx.android.synthetic.main.activity_camera_demo.*
@@ -25,6 +29,7 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
     private lateinit var bRecord: Button
 
     private var currentDateAndTime = ""
+    private var currentDateAndTime_watermark = ""
     private lateinit var folder: File
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +44,11 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
         switch_camera.setOnClickListener(this)
         rtspServerCamera1 = RtspServerCamera1(surfaceView, this, 1935)
         surfaceView.holder.addCallback(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initTimeWaterMarkFormat()
     }
 
     override fun onNewBitrateRtsp(bitrate: Long) {
@@ -193,4 +203,20 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
         }
         rtspServerCamera1.stopPreview()
     }
+
+    private fun initTimeWaterMarkFormat() {
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        currentDateAndTime_watermark = sdf.format(Date())
+        val textObjectFilterRender = TextObjectFilterRender()
+        rtspServerCamera1.glInterface.setFilter(textObjectFilterRender)
+        textObjectFilterRender.setText(currentDateAndTime_watermark, 22f, Color.WHITE)
+        textObjectFilterRender.setDefaultScale(
+            rtspServerCamera1.streamWidth,
+            rtspServerCamera1.streamHeight
+        )
+        textObjectFilterRender.setPosition(TranslateTo.TOP_LEFT)
+//        spriteGestureController.setBaseObjectFilterRender(textObjectFilterRender) //Optional
+    }
+
+
 }

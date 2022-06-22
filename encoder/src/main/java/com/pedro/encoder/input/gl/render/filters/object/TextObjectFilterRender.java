@@ -16,6 +16,7 @@
 
 package com.pedro.encoder.input.gl.render.filters.object;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.opengl.GLES20;
 import android.os.Build;
@@ -24,6 +25,9 @@ import android.util.Log;
 import androidx.annotation.RequiresApi;
 
 import com.pedro.encoder.utils.gl.TextStreamObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 /**
  * Created by pedro on 27/07/18.
@@ -37,9 +41,13 @@ public class TextObjectFilterRender extends BaseObjectFilterRender {
     private int textColor;
     private Typeface typeface;
 
+    private long currentTime = 0;
+    private SimpleDateFormat format;
+
     public TextObjectFilterRender() {
         super();
         streamObject = new TextStreamObject();
+        format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
     }
 
     @Override
@@ -48,6 +56,11 @@ public class TextObjectFilterRender extends BaseObjectFilterRender {
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, streamObjectTextureId[0]);
         //Set alpha. 0f if no image loaded.
         GLES20.glUniform1f(uAlphaHandle, streamObjectTextureId[0] == -1 ? 0f : alpha);
+
+        if (System.currentTimeMillis() - currentTime > 999) {
+            currentTime = System.currentTimeMillis();
+            setText(format.format(currentTime), 22f, Color.WHITE);
+        }
     }
 
     public void setText(String text, float textSize, int textColor) {
