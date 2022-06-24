@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
       if (!hasPermissions(this, *PERMISSIONS)) {
         ActivityCompat.requestPermissions(this, PERMISSIONS, 1)
       } else {
-        startActivity(Intent(this, CameraDemoActivity::class.java))
+        startActivity(Intent(this, RtspFromFileActivity::class.java))
+//        startActivity(Intent(this, CameraDemoActivity::class.java))
       }
     }
   }

@@ -156,6 +156,7 @@ public abstract class FromFileBase
                                 int avcProfileLevel) throws IOException {
         videoPath = filePath;
         if (!videoDecoder.initExtractor(filePath)) return false;
+        Log.e(TAG, "stormxz video w = " + videoDecoder.getWidth() + "  h = " + videoDecoder.getHeight());
         boolean result =
                 videoEncoder.prepareVideoEncoder(videoDecoder.getWidth(), videoDecoder.getHeight(), 30,
                         bitRate, rotation, 2, FormatVideoEncoder.SURFACE, avcProfile, avcProfileLevel);
@@ -170,7 +171,7 @@ public abstract class FromFileBase
     }
 
     public boolean prepareVideo(String filePath) throws IOException {
-        return prepareVideo(filePath, 1200 * 1024, 0);
+        return prepareVideo(filePath, 1200 * 1024, 90);
     }
 
     /**

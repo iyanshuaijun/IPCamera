@@ -15,6 +15,7 @@ import com.pedro.encoder.input.video.CameraOpenException
 import com.pedro.encoder.utils.gl.TranslateTo
 import com.pedro.rtsp.utils.ConnectCheckerRtsp
 import com.pedro.rtspserver.RtspServerCamera1
+import com.pedro.rtspserver.RtspServerCamera2
 import kotlinx.android.synthetic.main.activity_camera_demo.*
 import java.io.File
 import java.io.IOException
@@ -24,7 +25,7 @@ import java.util.*
 class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClickListener,
     SurfaceHolder.Callback {
 
-    private lateinit var rtspServerCamera1: RtspServerCamera1
+    private lateinit var rtspServerCamera1: RtspServerCamera2
     private lateinit var button: Button
     private lateinit var bRecord: Button
 
@@ -42,8 +43,8 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
         bRecord = findViewById(R.id.b_record)
         bRecord.setOnClickListener(this)
         switch_camera.setOnClickListener(this)
-        rtspServerCamera1 = RtspServerCamera1(surfaceView, this, 1935)
-        surfaceView.holder.addCallback(this)
+        rtspServerCamera1 = RtspServerCamera2(surfaceView, this, 1935)
+//        surfaceView.holder.addCallback(this)
     }
 
     override fun onResume() {

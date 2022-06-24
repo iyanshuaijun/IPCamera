@@ -19,6 +19,13 @@ open class RtspServerFromFile : FromFileBase {
 
     private val rtspServer: RtspServer
 
+    constructor(connectCheckerRtsp: ConnectCheckerRtsp, port: Int,
+                videoDecoderInterface: VideoDecoderInterface,
+                audioDecoderInterface: AudioDecoderInterface) : super(videoDecoderInterface,
+            audioDecoderInterface) {
+        rtspServer = RtspServer(connectCheckerRtsp, port)
+    }
+
     constructor(
         openGlView: OpenGlView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int,
         videoDecoderInterface: VideoDecoderInterface,
