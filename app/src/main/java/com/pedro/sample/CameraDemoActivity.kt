@@ -43,7 +43,7 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
         bRecord = findViewById(R.id.b_record)
         bRecord.setOnClickListener(this)
         switch_camera.setOnClickListener(this)
-        rtspServerCamera1 = RtspServerCamera2(surfaceView, this, 1935)
+        rtspServerCamera1 = RtspServerCamera2(surfaceView, this, 1935, "0")
 //        surfaceView.holder.addCallback(this)
     }
 
