@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
       } else {
         startActivity(Intent(this, RtspFromFileActivity::class.java))
 //        startActivity(Intent(this, CameraDemoActivity::class.java))
+//        startActivity(Intent(this, DisplayActivity::class.java))
       }
     }
   }
