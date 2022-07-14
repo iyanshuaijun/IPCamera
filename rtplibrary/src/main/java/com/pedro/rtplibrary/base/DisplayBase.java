@@ -264,7 +264,7 @@ public abstract class DisplayBase implements GetAacData, GetVideoData, GetMicrop
      * doesn't support any configuration seated or your device hasn't a H264 encoder).
      */
     public boolean prepareVideo() {
-        return prepareVideo(640, 480, 30, 1200 * 1024, 0, 320);
+        return prepareVideo(1920, 1080, 30, 1200 * 1024, 0, 320);
     }
 
     /**

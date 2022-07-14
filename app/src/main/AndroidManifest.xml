@@ -13,6 +13,9 @@
     <uses-feature android:name="android.hardware.camera2.full" />
     <uses-feature android:name="android.hardware.camera2.autofocus" />
 
+    <!--needed by background Rtp service to keep service alive-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -37,6 +40,14 @@
         <activity
             android:name=".RtspFromFileActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".DisplayActivity"
+            android:screenOrientation="portrait"/>
+
+        <service android:name="com.pedro.rtpstreamer.displayexample.DisplayService"
+            android:foregroundServiceType="mediaProjection"
+            />
     </application>
 
 </manifest>
