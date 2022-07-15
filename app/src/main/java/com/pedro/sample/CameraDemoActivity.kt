@@ -56,13 +56,13 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
 
     }
 
-    override fun onConnectionSuccessRtsp() {
+    override fun onConnectionSuccessRtsp(cameraId: String) {
         runOnUiThread {
             Toast.makeText(this@CameraDemoActivity, "Connection success", Toast.LENGTH_SHORT).show()
         }
     }
 
-    override fun onConnectionFailedRtsp(reason: String) {
+    override fun onConnectionFailedRtsp(reason: String, cameraId: String) {
         runOnUiThread {
             Toast.makeText(
                 this@CameraDemoActivity,
@@ -78,7 +78,7 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
     override fun onConnectionStartedRtsp(rtspUrl: String) {
     }
 
-    override fun onDisconnectRtsp() {
+    override fun onDisconnectRtsp(cameraId: String) {
         runOnUiThread {
             Toast.makeText(this@CameraDemoActivity, "Disconnected", Toast.LENGTH_SHORT).show()
         }

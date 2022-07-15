@@ -27,27 +27,27 @@ open class RtspServerCamera1 : Camera1Base, SurfaceHolder.Callback {
     surfaceView) {
     surfaceView.holder.addCallback(this)
     mCameraId = cameraId
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId.toString())
   }
 
-  constructor(textureView: TextureView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int) : super(
+  constructor(textureView: TextureView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int, cameraId: Int) : super(
     textureView) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId.toString())
   }
 
-  constructor(openGlView: OpenGlView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int) : super(
+  constructor(openGlView: OpenGlView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int, cameraId: Int) : super(
     openGlView) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId.toString())
   }
 
   constructor(lightOpenGlView: LightOpenGlView, connectCheckerRtsp: ConnectCheckerRtsp,
-    port: Int) : super(lightOpenGlView) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    port: Int, cameraId: Int) : super(lightOpenGlView) {
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId.toString())
   }
 
-  constructor(context: Context, connectCheckerRtsp: ConnectCheckerRtsp, port: Int) : super(
+  constructor(context: Context, connectCheckerRtsp: ConnectCheckerRtsp, port: Int, cameraId: Int) : super(
     context) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId.toString())
   }
 
   fun setVideoCodec(videoCodec: VideoCodec) {
@@ -77,7 +77,7 @@ open class RtspServerCamera1 : Camera1Base, SurfaceHolder.Callback {
   }
 
   override fun stopStreamRtp() {
-    rtspServer.stopServer()
+    rtspServer.stopServer(false)
   }
 
   override fun getAacDataRtp(aacBuffer: ByteBuffer, info: MediaCodec.BufferInfo) {

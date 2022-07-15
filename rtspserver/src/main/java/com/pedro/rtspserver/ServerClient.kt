@@ -17,12 +17,13 @@ open class ServerClient(private val socket: Socket, serverIp: String, serverPort
   private val connectCheckerRtsp: ConnectCheckerRtsp, clientAddress: String, sps: ByteBuffer?,
   pps: ByteBuffer?, vps: ByteBuffer?, sampleRate: Int, isStereo: Boolean,
   videoDisabled: Boolean, audioDisabled: Boolean, user: String?, password: String?,
-  private val listener: ClientListener) : Thread() {
+  private val listener: ClientListener, val cameraId: String) : Thread() {
+  val mCameraId = cameraId
 
   private val TAG = "Client"
   private val output = BufferedWriter(OutputStreamWriter(socket.getOutputStream()))
   private val input = BufferedReader(InputStreamReader(socket.getInputStream()))
-  val rtspSender = RtspSender(connectCheckerRtsp)
+  val rtspSender = RtspSender(connectCheckerRtsp, mCameraId)
   val commandsManager = ServerCommandManager(serverIp, serverPort, clientAddress)
   var canSend = false
 
@@ -74,7 +75,7 @@ open class ServerClient(private val socket: Socket, serverIp: String, serverPort
             }
           }
           rtspSender.start()
-          connectCheckerRtsp.onConnectionSuccessRtsp()
+          connectCheckerRtsp.onConnectionSuccessRtsp(mCameraId)
           canSend = true
         } else if (request.method == Method.TEARDOWN) {
           Log.i(TAG, "Client disconnected")

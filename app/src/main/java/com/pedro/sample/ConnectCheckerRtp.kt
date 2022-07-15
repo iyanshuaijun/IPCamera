@@ -80,11 +80,11 @@ interface ConnectCheckerRtp: ConnectCheckerRtmp, ConnectCheckerRtsp {
     onConnectionStartedRtp(rtspUrl)
   }
 
-  override fun onConnectionSuccessRtsp() {
+  override fun onConnectionSuccessRtsp(cameraId: String) {
     onConnectionSuccessRtp()
   }
 
-  override fun onConnectionFailedRtsp(reason: String) {
+  override fun onConnectionFailedRtsp(reason: String, cameraId: String) {
     onConnectionFailedRtp(reason)
   }
 
@@ -92,7 +92,7 @@ interface ConnectCheckerRtp: ConnectCheckerRtmp, ConnectCheckerRtsp {
     onNewBitrateRtp(bitrate)
   }
 
-  override fun onDisconnectRtsp() {
+  override fun onDisconnectRtsp(cameraId: String) {
     onDisconnectRtp()
   }
 

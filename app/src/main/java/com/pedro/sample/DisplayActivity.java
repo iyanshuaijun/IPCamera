@@ -94,7 +94,7 @@ public class DisplayActivity extends AppCompatActivity
   }
 
   @Override
-  public void onConnectionSuccessRtsp() {
+  public void onConnectionSuccessRtsp(String cameraId) {
     runOnUiThread(new Runnable() {
       @Override
       public void run() {
@@ -104,7 +104,7 @@ public class DisplayActivity extends AppCompatActivity
   }
 
   @Override
-  public void onConnectionFailedRtsp(final String reason) {
+  public void onConnectionFailedRtsp(final String reason, String cameraId) {
     runOnUiThread(new Runnable() {
       @Override
       public void run() {
@@ -125,7 +125,7 @@ public class DisplayActivity extends AppCompatActivity
   }
 
   @Override
-  public void onDisconnectRtsp() {
+  public void onDisconnectRtsp(String cameraId) {
     runOnUiThread(new Runnable() {
       @Override
       public void run() {

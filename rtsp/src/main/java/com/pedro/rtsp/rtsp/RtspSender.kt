@@ -34,9 +34,10 @@ import java.util.concurrent.*
 /**
  * Created by pedro on 7/11/18.
  */
-open class RtspSender(private val connectCheckerRtsp: ConnectCheckerRtsp) : VideoPacketCallback,
+open class RtspSender(private val connectCheckerRtsp: ConnectCheckerRtsp, val cameraId: String) : VideoPacketCallback,
     AudioPacketCallback {
 
+    val mCameraId = cameraId
     private var videoPacket: BasePacket? = null
     private var aacPacket: AacPacket? = null
     private var rtpSocket: BaseRtpSocket? = null
@@ -160,7 +161,7 @@ open class RtspSender(private val connectCheckerRtsp: ConnectCheckerRtsp) : Vide
                 } catch (e: Exception) {
                     //InterruptedException is only when you disconnect manually, you don't need report it.
                     if (e !is InterruptedException && running) {
-                        connectCheckerRtsp.onConnectionFailedRtsp("Error send packet, " + e.message)
+                        connectCheckerRtsp.onConnectionFailedRtsp("Error send packet, " + e.message, mCameraId)
                         Log.e(TAG, "send error: ", e)
                     }
                     return@post

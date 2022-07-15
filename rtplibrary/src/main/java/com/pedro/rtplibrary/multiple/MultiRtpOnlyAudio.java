@@ -79,7 +79,7 @@ public class MultiRtpOnlyAudio extends OnlyAudioBase {
         int rtspSize = connectCheckerRtspList != null ? connectCheckerRtspList.length : 0;
         rtspClients = new RtspClient[rtspSize];
         for (int i = 0; i < rtspClients.length; i++) {
-            rtspClients[i] = new RtspClient(connectCheckerRtspList[i]);
+            rtspClients[i] = new RtspClient(connectCheckerRtspList[i],"-106");
             rtspClients[i].setOnlyAudio(true);
         }
     }

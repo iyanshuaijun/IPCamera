@@ -24,18 +24,19 @@ import java.nio.ByteBuffer
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class RtspStream(
     context: Context, connectCheckerRtsp: ConnectCheckerRtsp, videoSource: VideoManager.Source,
-    audioSource: AudioManager.Source
+    audioSource: AudioManager.Source, val cameraId: String
 ) : StreamBase(context, videoSource, audioSource) {
 
-    constructor(context: Context, connectCheckerRtsp: ConnectCheckerRtsp) :
+    constructor(context: Context, connectCheckerRtsp: ConnectCheckerRtsp, cameraId: String) :
             this(
                 context,
                 connectCheckerRtsp,
                 VideoManager.Source.CAMERA2,
-                AudioManager.Source.MICROPHONE
+                AudioManager.Source.MICROPHONE,
+                cameraId
             )
 
-    private val rtspClient = RtspClient(connectCheckerRtsp)
+    private val rtspClient = RtspClient(connectCheckerRtsp, cameraId)
 
     /**
      * Internet protocol used.

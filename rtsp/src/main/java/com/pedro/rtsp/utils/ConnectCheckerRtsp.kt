@@ -21,10 +21,10 @@ package com.pedro.rtsp.utils
  */
 interface ConnectCheckerRtsp {
     fun onConnectionStartedRtsp(rtspUrl: String)
-    fun onConnectionSuccessRtsp()
-    fun onConnectionFailedRtsp(reason: String)
+    fun onConnectionSuccessRtsp(cameraId: String)
+    fun onConnectionFailedRtsp(reason: String, cameraId: String)
     fun onNewBitrateRtsp(bitrate: Long)
-    fun onDisconnectRtsp()
+    fun onDisconnectRtsp(cameraId: String)
     fun onAuthErrorRtsp()
     fun onAuthSuccessRtsp()
 }

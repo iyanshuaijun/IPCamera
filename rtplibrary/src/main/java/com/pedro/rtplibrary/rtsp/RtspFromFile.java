@@ -50,25 +50,25 @@ public class RtspFromFile extends FromFileBase {
     public RtspFromFile(ConnectCheckerRtsp connectCheckerRtsp,
                         VideoDecoderInterface videoDecoderInterface, AudioDecoderInterface audioDecoderInterface) {
         super(videoDecoderInterface, audioDecoderInterface);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, "-100");
     }
 
     public RtspFromFile(Context context, ConnectCheckerRtsp connectCheckerRtsp,
                         VideoDecoderInterface videoDecoderInterface, AudioDecoderInterface audioDecoderInterface) {
         super(context, videoDecoderInterface, audioDecoderInterface);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, "-100");
     }
 
     public RtspFromFile(OpenGlView openGlView, ConnectCheckerRtsp connectCheckerRtsp,
                         VideoDecoderInterface videoDecoderInterface, AudioDecoderInterface audioDecoderInterface) {
         super(openGlView, videoDecoderInterface, audioDecoderInterface);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, "-100");
     }
 
     public RtspFromFile(LightOpenGlView lightOpenGlView, ConnectCheckerRtsp connectCheckerRtsp,
                         VideoDecoderInterface videoDecoderInterface, AudioDecoderInterface audioDecoderInterface) {
         super(lightOpenGlView, videoDecoderInterface, audioDecoderInterface);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, "-100");
     }
 
     /**

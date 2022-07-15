@@ -89,7 +89,7 @@ public class MultiRtpCamera2 extends Camera2Base {
         int rtspSize = connectCheckerRtspList != null ? connectCheckerRtspList.length : 0;
         rtspClients = new RtspClient[rtspSize];
         for (int i = 0; i < rtspClients.length; i++) {
-            rtspClients[i] = new RtspClient(connectCheckerRtspList[i]);
+            rtspClients[i] = new RtspClient(connectCheckerRtspList[i], "-104");
         }
     }
 
@@ -105,7 +105,7 @@ public class MultiRtpCamera2 extends Camera2Base {
         int rtspSize = connectCheckerRtspList != null ? connectCheckerRtspList.length : 0;
         rtspClients = new RtspClient[rtspSize];
         for (int i = 0; i < rtspClients.length; i++) {
-            rtspClients[i] = new RtspClient(connectCheckerRtspList[i]);
+            rtspClients[i] = new RtspClient(connectCheckerRtspList[i], "-104");
         }
     }
 
@@ -120,7 +120,7 @@ public class MultiRtpCamera2 extends Camera2Base {
         int rtspSize = connectCheckerRtspList != null ? connectCheckerRtspList.length : 0;
         rtspClients = new RtspClient[rtspSize];
         for (int i = 0; i < rtspClients.length; i++) {
-            rtspClients[i] = new RtspClient(connectCheckerRtspList[i]);
+            rtspClients[i] = new RtspClient(connectCheckerRtspList[i], "-104");
         }
     }
 
@@ -135,7 +135,7 @@ public class MultiRtpCamera2 extends Camera2Base {
         int rtspSize = connectCheckerRtspList != null ? connectCheckerRtspList.length : 0;
         rtspClients = new RtspClient[rtspSize];
         for (int i = 0; i < rtspClients.length; i++) {
-            rtspClients[i] = new RtspClient(connectCheckerRtspList[i]);
+            rtspClients[i] = new RtspClient(connectCheckerRtspList[i], "-104");
         }
     }
 
@@ -150,7 +150,7 @@ public class MultiRtpCamera2 extends Camera2Base {
         int rtspSize = connectCheckerRtspList != null ? connectCheckerRtspList.length : 0;
         rtspClients = new RtspClient[rtspSize];
         for (int i = 0; i < rtspClients.length; i++) {
-            rtspClients[i] = new RtspClient(connectCheckerRtspList[i]);
+            rtspClients[i] = new RtspClient(connectCheckerRtspList[i], "-104");
         }
     }
 

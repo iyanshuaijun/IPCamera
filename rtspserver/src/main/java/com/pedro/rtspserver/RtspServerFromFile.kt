@@ -21,21 +21,21 @@ open class RtspServerFromFile : FromFileBase {
     videoDecoderInterface: VideoDecoderInterface,
     audioDecoderInterface: AudioDecoderInterface) : super(openGlView, videoDecoderInterface,
     audioDecoderInterface) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port, "-100")
   }
 
   constructor(lightOpenGlView: LightOpenGlView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int,
     videoDecoderInterface: VideoDecoderInterface,
     audioDecoderInterface: AudioDecoderInterface) : super(lightOpenGlView, videoDecoderInterface,
     audioDecoderInterface) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port, "-100")
   }
 
   constructor(context: Context, connectCheckerRtsp: ConnectCheckerRtsp, port: Int,
     videoDecoderInterface: VideoDecoderInterface,
     audioDecoderInterface: AudioDecoderInterface) : super(context, videoDecoderInterface,
     audioDecoderInterface) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port,"-100")
   }
 
   fun setVideoCodec(videoCodec: VideoCodec) {
@@ -65,7 +65,7 @@ open class RtspServerFromFile : FromFileBase {
   }
 
   override fun stopStreamRtp() {
-    rtspServer.stopServer()
+    rtspServer.stopServer(false)
   }
 
   override fun getAacDataRtp(aacBuffer: ByteBuffer, info: MediaCodec.BufferInfo) {

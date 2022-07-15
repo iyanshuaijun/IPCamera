@@ -10,7 +10,7 @@ import java.nio.ByteBuffer
  */
 open class RtspServerOnlyAudio(connectCheckerRtsp: ConnectCheckerRtsp, port: Int) : OnlyAudioBase() {
 
-  private val rtspServer = RtspServer(connectCheckerRtsp, port)
+  private val rtspServer = RtspServer(connectCheckerRtsp, port, "-102")
 
   init {
     rtspServer.setOnlyAudio(true)
@@ -38,7 +38,7 @@ open class RtspServerOnlyAudio(connectCheckerRtsp: ConnectCheckerRtsp, port: Int
   }
 
   override fun stopStreamRtp() {
-    rtspServer.stopServer()
+    rtspServer.stopServer(false)
   }
 
   override fun getAacDataRtp(aacBuffer: ByteBuffer, info: MediaCodec.BufferInfo) {

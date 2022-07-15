@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
  */
 
 open class RtspServer(private val connectCheckerRtsp: ConnectCheckerRtsp,
-  val port: Int): ClientListener {
+  val port: Int, val cameraId: String): ClientListener {
 
   private val TAG = "RtspServer"
   private var server: ServerSocket? = null
@@ -46,7 +46,7 @@ open class RtspServer(private val connectCheckerRtsp: ConnectCheckerRtsp,
   }
 
   fun startServer() {
-    stopServer()
+    stopServer(true)
     thread = Thread {
       try {
         if (!videoDisabled) {
@@ -56,13 +56,13 @@ open class RtspServer(private val connectCheckerRtsp: ConnectCheckerRtsp,
             semaphore.tryAcquire(5000, TimeUnit.MILLISECONDS)
           }
           if (sps == null || pps == null) {
-            connectCheckerRtsp.onConnectionFailedRtsp("sps or pps is null")
+            connectCheckerRtsp.onConnectionFailedRtsp("sps or pps is null", cameraId)
             return@Thread
           }
         }
         server = ServerSocket(port)
       } catch (e: IOException) {
-        connectCheckerRtsp.onConnectionFailedRtsp("Server creation failed")
+        connectCheckerRtsp.onConnectionFailedRtsp("Server creation failed", cameraId)
         Log.e(TAG, "Error", e)
         return@Thread
       }
@@ -77,7 +77,7 @@ open class RtspServer(private val connectCheckerRtsp: ConnectCheckerRtsp,
             continue
           }
           val client = ServerClient(clientSocket, serverIp, port, connectCheckerRtsp, clientAddress, sps, pps, vps,
-              sampleRate, isStereo, videoDisabled, audioDisabled, user, password, this)
+              sampleRate, isStereo, videoDisabled, audioDisabled, user, password, this, cameraId)
           client.rtspSender.setLogs(logs)
           client.start()
           synchronized(clients) {
@@ -99,10 +99,13 @@ open class RtspServer(private val connectCheckerRtsp: ConnectCheckerRtsp,
 
   fun getNumClients(): Int = clients.size
 
-  fun stopServer() {
+  fun stopServer(isStart: Boolean) {
     synchronized(clients) {
       clients.forEach { it.stopClient() }
       clients.clear()
+      if (!isStart) {
+        connectCheckerRtsp.onDisconnectRtsp(cameraId)
+      }
     }
     if (server?.isClosed == false) server?.close()
     thread?.interrupt()
@@ -183,6 +186,7 @@ open class RtspServer(private val connectCheckerRtsp: ConnectCheckerRtsp,
     synchronized(clients) {
       client.stopClient()
       clients.remove(client)
+      connectCheckerRtsp.onDisconnectRtsp(cameraId)
     }
   }
 

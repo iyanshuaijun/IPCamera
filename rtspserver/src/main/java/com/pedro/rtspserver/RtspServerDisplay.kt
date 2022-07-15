@@ -13,7 +13,7 @@ open class RtspServerDisplay(context: Context, useOpengl: Boolean,
   connectCheckerRtsp: ConnectCheckerRtsp, port: Int) : DisplayBase(context, useOpengl) {
 
   private val rtspServer: RtspServer =
-      RtspServer(connectCheckerRtsp, port)
+      RtspServer(connectCheckerRtsp, port,"-101")
 
   fun setVideoCodec(videoCodec: VideoCodec) {
     videoEncoder.type =
@@ -42,7 +42,7 @@ open class RtspServerDisplay(context: Context, useOpengl: Boolean,
   }
 
   override fun stopStreamRtp() {
-    rtspServer.stopServer()
+    rtspServer.stopServer(false)
   }
 
   override fun getAacDataRtp(aacBuffer: ByteBuffer, info: MediaCodec.BufferInfo) {

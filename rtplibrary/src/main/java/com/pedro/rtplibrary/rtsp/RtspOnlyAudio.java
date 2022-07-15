@@ -39,7 +39,7 @@ public class RtspOnlyAudio extends OnlyAudioBase {
 
     public RtspOnlyAudio(ConnectCheckerRtsp connectCheckerRtsp) {
         super();
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, "-102");
         rtspClient.setOnlyAudio(true);
     }
 

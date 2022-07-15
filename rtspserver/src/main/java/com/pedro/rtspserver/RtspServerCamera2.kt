@@ -20,24 +20,24 @@ open class RtspServerCamera2 : Camera2Base {
           surfaceView) {
     mCameraId = cameraId
 
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId)
   }
 
   constructor(openGlView: OpenGlView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int, cameraId: String) : super(
     openGlView) {
     mCameraId = cameraId
 
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId)
   }
 
   constructor(lightOpenGlView: LightOpenGlView, connectCheckerRtsp: ConnectCheckerRtsp,
-    port: Int) : super(lightOpenGlView) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    port: Int, cameraId: String) : super(lightOpenGlView) {
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId)
   }
 
   constructor(context: Context, useOpengl: Boolean, connectCheckerRtsp: ConnectCheckerRtsp,
-    port: Int) : super(context, useOpengl) {
-    rtspServer = RtspServer(connectCheckerRtsp, port)
+    port: Int, cameraId: String) : super(context, useOpengl) {
+    rtspServer = RtspServer(connectCheckerRtsp, port, cameraId)
   }
 
   fun setVideoCodec(videoCodec: VideoCodec) {
@@ -68,7 +68,7 @@ open class RtspServerCamera2 : Camera2Base {
   }
 
   override fun stopStreamRtp() {
-    rtspServer.stopServer()
+    rtspServer.stopServer(false)
   }
 
   override fun getAacDataRtp(aacBuffer: ByteBuffer, info: MediaCodec.BufferInfo) {

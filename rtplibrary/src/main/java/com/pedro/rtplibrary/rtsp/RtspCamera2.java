@@ -54,9 +54,9 @@ public class RtspCamera2 extends Camera2Base {
      * instead.
      */
     @Deprecated
-    public RtspCamera2(SurfaceView surfaceView, ConnectCheckerRtsp connectCheckerRtsp) {
+    public RtspCamera2(SurfaceView surfaceView, ConnectCheckerRtsp connectCheckerRtsp, int cameraId) {
         super(surfaceView);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, cameraId + "");
     }
 
     /**
@@ -65,24 +65,24 @@ public class RtspCamera2 extends Camera2Base {
      * instead.
      */
     @Deprecated
-    public RtspCamera2(TextureView textureView, ConnectCheckerRtsp connectCheckerRtsp) {
+    public RtspCamera2(TextureView textureView, ConnectCheckerRtsp connectCheckerRtsp, int cameraId) {
         super(textureView);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, cameraId + "");
     }
 
-    public RtspCamera2(OpenGlView openGlView, ConnectCheckerRtsp connectCheckerRtsp) {
+    public RtspCamera2(OpenGlView openGlView, ConnectCheckerRtsp connectCheckerRtsp, int cameraId) {
         super(openGlView);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, cameraId + "");
     }
 
-    public RtspCamera2(LightOpenGlView lightOpenGlView, ConnectCheckerRtsp connectCheckerRtsp) {
+    public RtspCamera2(LightOpenGlView lightOpenGlView, ConnectCheckerRtsp connectCheckerRtsp, int cameraId) {
         super(lightOpenGlView);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, cameraId + "");
     }
 
-    public RtspCamera2(Context context, boolean useOpengl, ConnectCheckerRtsp connectCheckerRtsp) {
+    public RtspCamera2(Context context, boolean useOpengl, ConnectCheckerRtsp connectCheckerRtsp, int cameraId) {
         super(context, useOpengl);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, cameraId + "");
     }
 
     /**

@@ -45,7 +45,7 @@ public class RtspDisplay extends DisplayBase {
 
     public RtspDisplay(Context context, boolean useOpengl, ConnectCheckerRtsp connectCheckerRtsp) {
         super(context, useOpengl);
-        rtspClient = new RtspClient(connectCheckerRtsp);
+        rtspClient = new RtspClient(connectCheckerRtsp, "-101");
     }
 
     /**
