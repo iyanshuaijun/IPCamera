@@ -24,9 +24,9 @@ import android.graphics.Bitmap;
 
 public abstract class StreamObjectBase {
 
-    public abstract int getWidth();
+    public abstract int[] getWidth();
 
-    public abstract int getHeight();
+    public abstract int[] getHeight();
 
     public abstract int updateFrame();
 
