@@ -16,11 +16,8 @@
 
 package com.pedro.encoder.input.gl.render.filters.object;
 
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.opengl.GLES20;
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -53,14 +50,6 @@ public class TextObjectFilterRender extends BaseObjectFilterRender {
     @Override
     protected void drawFilter() {
         super.drawFilter();
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, streamObjectTextureId[0]);
-        //Set alpha. 0f if no image loaded.
-        GLES20.glUniform1f(uAlphaHandle, streamObjectTextureId[0] == -1 ? 0f : alpha);
-
-        if (System.currentTimeMillis() - currentTime > 999) {
-            currentTime = System.currentTimeMillis();
-            setText(format.format(currentTime), 22f, Color.WHITE);
-        }
     }
 
     public void setText(String text, float textSize, int textColor) {

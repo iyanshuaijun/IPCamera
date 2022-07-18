@@ -48,18 +48,17 @@ public class TextStreamObject extends StreamObjectBase {
     }
 
     @Override
-    public int getWidth() {
-        return imageBitmap != null ? imageBitmap.getWidth() : 0;
+    public int[] getWidth() {
+        return null;
     }
 
     @Override
-    public int getHeight() {
-        return imageBitmap != null ? imageBitmap.getHeight() : 0;
+    public int[] getHeight() {
+        return null;
     }
 
     public void load(String text, float textSize, int textColor, Typeface typeface) {
-        numFrames = 1;
-        imageBitmap = textAsBitmap(text, textSize, textColor, typeface);
+        numFrames = 4;
         Log.i(TAG, "finish load text");
     }
 
@@ -90,7 +89,7 @@ public class TextStreamObject extends StreamObjectBase {
 
     @Override
     public Bitmap[] getBitmaps() {
-        return new Bitmap[]{imageBitmap};
+        return null;
     }
 
     @Override

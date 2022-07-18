@@ -33,13 +33,13 @@ import com.pedro.encoder.utils.gl.GlUtil;
 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
 public abstract class BaseFilterRender extends BaseRenderOffScreen {
 
-    private int width;
-    private int height;
+    protected int width;
+    protected int height;
     private int previewWidth;
     private int previewHeight;
 
     protected int previousTexId;
-    private RenderHandler renderHandler = new RenderHandler();
+//    private RenderHandler renderHandler = new RenderHandler();
 
     public void initGl(int width, int height, Context context, int previewWidth, int previewHeight) {
         this.width = width;
@@ -64,13 +64,13 @@ public abstract class BaseFilterRender extends BaseRenderOffScreen {
     protected abstract void initGlFilter(Context context);
 
     public void draw() {
-        GlUtil.checkGlError("drawFilter start");
-        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, renderHandler.getFboId()[0]);
-        GLES20.glViewport(0, 0, width, height);
+//        GlUtil.checkGlError("drawFilter start");
+//        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, renderHandler.getFboId()[0]);
+//        GLES20.glViewport(0, 0, width, height);
         drawFilter();
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
-        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
-        GlUtil.checkGlError("drawFilter end");
+//        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
+//        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
+//        GlUtil.checkGlError("drawFilter end");
     }
 
     protected abstract void drawFilter();

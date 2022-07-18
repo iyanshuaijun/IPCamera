@@ -215,7 +215,6 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
             rtspServerCamera1.streamWidth,
             rtspServerCamera1.streamHeight
         )
-        textObjectFilterRender.setPosition(TranslateTo.TOP_LEFT)
 //        spriteGestureController.setBaseObjectFilterRender(textObjectFilterRender) //Optional
     }
 

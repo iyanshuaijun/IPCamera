@@ -42,13 +42,13 @@ public class GifStreamObject extends StreamObjectBase {
     }
 
     @Override
-    public int getWidth() {
-        return gifBitmaps != null ? gifBitmaps[0].getWidth() : 0;
+    public int[] getWidth() {
+        return null;
     }
 
     @Override
-    public int getHeight() {
-        return gifBitmaps != null ? gifBitmaps[0].getHeight() : 0;
+    public int[] getHeight() {
+        return null;
     }
 
     public void load(InputStream inputStreamGif) throws IOException {
