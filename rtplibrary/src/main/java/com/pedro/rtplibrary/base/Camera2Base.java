@@ -386,9 +386,9 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
      * @return true if success, false if you get a error (Normally because the encoder selected
      * doesn't support any configuration seated or your device hasn't a H264 encoder).
      */
-    public boolean prepareVideo() {
+    public boolean prepareVideo(int width, int height) {
         int rotation = CameraHelper.getCameraOrientation(context);
-        return prepareVideo(640, 480, 30, 1200 * 1024, rotation);
+        return prepareVideo(width, height, 30, 1200 * 1024, rotation);
     }
 
     /**
