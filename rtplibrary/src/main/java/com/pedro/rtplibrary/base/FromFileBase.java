@@ -170,8 +170,8 @@ public abstract class FromFileBase
         return prepareVideo(filePath, bitRate, rotation, -1, -1);
     }
 
-    public boolean prepareVideo(String filePath) throws IOException {
-        return prepareVideo(filePath, 1200 * 1024, 90);
+    public boolean prepareVideo(String filePath, int rotation) throws IOException {
+        return prepareVideo(filePath, 1200 * 1024, rotation);
     }
 
     /**

@@ -296,7 +296,7 @@ public class RtspFromFileActivity extends AppCompatActivity
 
   private boolean prepare() throws IOException {
     android.util.Log.e("stormxz", "stormxz stream video 111");
-    boolean result = rtspFromFile.prepareVideo(filePath);
+    boolean result = rtspFromFile.prepareVideo(filePath, 90);
     result |= rtspFromFile.prepareAudio(filePath);
     return result;
   }

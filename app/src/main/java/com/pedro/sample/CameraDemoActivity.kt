@@ -102,7 +102,7 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
     override fun onClick(view: View) {
         when (view.id) {
             R.id.b_start_stop -> if (!rtspServerCamera1.isStreaming) {
-                if (rtspServerCamera1.isRecording || rtspServerCamera1.prepareAudio() && rtspServerCamera1.prepareVideo()) {
+                if (rtspServerCamera1.isRecording || rtspServerCamera1.prepareAudio() && rtspServerCamera1.prepareVideo(1920, 1080)) {
                     button.setText(R.string.stop_button)
                     rtspServerCamera1.startStream()
                     tv_url.text = rtspServerCamera1.getEndPointConnection()
@@ -135,7 +135,7 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
                             val sdf = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault())
                             currentDateAndTime = sdf.format(Date())
                             if (!rtspServerCamera1.isStreaming) {
-                                if (rtspServerCamera1.prepareAudio() && rtspServerCamera1.prepareVideo()) {
+                                if (rtspServerCamera1.prepareAudio() && rtspServerCamera1.prepareVideo(1920, 1080)) {
                                     rtspServerCamera1.startRecord(folder.absolutePath + "/" + currentDateAndTime + ".mp4")
                                     bRecord.setText(R.string.stop_record)
                                     Toast.makeText(this, "Recording... ", Toast.LENGTH_SHORT).show()
