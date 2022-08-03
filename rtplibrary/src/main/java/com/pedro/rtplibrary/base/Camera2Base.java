@@ -690,6 +690,9 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
      * Stop stream started with @startStream.
      */
     public void stopStream() {
+        if (streaming) {
+            streaming = false;
+        }
         if (!recordController.isRecording()) {
             onPreview = !isBackground;
             if (audioInitialized) microphoneManager.stop();
