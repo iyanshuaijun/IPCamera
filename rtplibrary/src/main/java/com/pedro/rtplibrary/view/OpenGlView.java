@@ -30,6 +30,7 @@ import androidx.annotation.RequiresApi;
 import com.pedro.encoder.input.gl.FilterAction;
 import com.pedro.encoder.input.gl.render.ManagerRender;
 import com.pedro.encoder.input.gl.render.filters.BaseFilterRender;
+import com.pedro.encoder.utils.BitmapUtils;
 import com.pedro.encoder.utils.gl.GlUtil;
 import com.pedro.rtplibrary.R;
 import com.pedro.rtplibrary.util.Filter;
@@ -48,6 +49,7 @@ public class OpenGlView extends OpenGlViewBase {
     private boolean keepAspectRatio = false;
     private AspectRatioMode aspectRatioMode = AspectRatioMode.Adjust;
     private boolean isFlipHorizontal = false, isFlipVertical = false;
+    private String imageSavePath = null;
 
     public OpenGlView(Context context) {
         super(context);
@@ -157,6 +159,10 @@ public class OpenGlView extends OpenGlViewBase {
         return managerRender != null && managerRender.isAAEnabled();
     }
 
+    public void capture(String path) {
+        this.imageSavePath = path;
+    }
+
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         this.previewWidth = width;
@@ -208,6 +214,14 @@ public class OpenGlView extends OpenGlViewBase {
                                     streamRotation, isStreamVerticalFlip, isStreamHorizontalFlip);
                             takePhotoCallback.onTakePhoto(GlUtil.getBitmap(encoderWidth, encoderHeight));
                             takePhotoCallback = null;
+                            surfaceManagerPhoto.swapBuffer();
+                        }
+                        if (imageSavePath != null && surfaceManagerPhoto.isReady()) {
+                            surfaceManagerPhoto.makeCurrent();
+                            managerRender.drawScreen(encoderWidth, encoderHeight, false, aspectRatioMode.id,
+                                    streamRotation, isStreamVerticalFlip, isStreamHorizontalFlip);
+                            BitmapUtils.saveBitmap(imageSavePath, GlUtil.getBitmap(encoderWidth, encoderHeight));
+                            imageSavePath = null;
                             surfaceManagerPhoto.swapBuffer();
                         }
                     }

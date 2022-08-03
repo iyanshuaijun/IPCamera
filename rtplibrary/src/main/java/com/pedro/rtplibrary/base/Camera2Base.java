@@ -388,7 +388,7 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
      */
     public boolean prepareVideo(int width, int height) {
         int rotation = CameraHelper.getCameraOrientation(context);
-        return prepareVideo(width, height, 30, 1200 * 1024, rotation);
+        return prepareVideo(width, height, 30, 12000 * 1024, rotation);
     }
 
     /**
@@ -690,10 +690,6 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
      * Stop stream started with @startStream.
      */
     public void stopStream() {
-        if (streaming) {
-            streaming = false;
-            stopStreamRtp();
-        }
         if (!recordController.isRecording()) {
             onPreview = !isBackground;
             if (audioInitialized) microphoneManager.stop();

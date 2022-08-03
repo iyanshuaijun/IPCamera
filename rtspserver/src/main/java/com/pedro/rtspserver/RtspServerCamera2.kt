@@ -56,7 +56,20 @@ open class RtspServerCamera2 : Camera2Base {
   fun startStream() {
     super.startStream("")
     switchCamera(mCameraId)
+  }
+
+  fun startServer() {
     rtspServer.startServer()
+  }
+
+  fun stopServer() {
+    if (rtspServer.isRunning()) {
+      rtspServer.stopServer(false)
+    }
+  }
+
+  fun isServering(): Boolean {
+    return rtspServer.isRunning()
   }
 
   override fun prepareAudioRtp(isStereo: Boolean, sampleRate: Int) {

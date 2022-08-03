@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pedro.encoder.input.gl.render.filters.`object`.TextObjectFilterRender
 import com.pedro.encoder.input.video.CameraOpenException
 import com.pedro.encoder.utils.gl.TranslateTo
+import com.pedro.rtsp.rtsp.VideoCodec
 import com.pedro.rtsp.utils.ConnectCheckerRtsp
 import com.pedro.rtspserver.RtspServerCamera1
 import com.pedro.rtspserver.RtspServerCamera2
@@ -44,6 +45,7 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
         bRecord.setOnClickListener(this)
         switch_camera.setOnClickListener(this)
         rtspServerCamera1 = RtspServerCamera2(surfaceView, this, 1935, "0")
+//        rtspServerCamera1.setVideoCodec(VideoCodec.H265)
 //        surfaceView.holder.addCallback(this)
     }
 
