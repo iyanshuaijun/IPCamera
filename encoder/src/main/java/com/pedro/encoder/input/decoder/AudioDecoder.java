@@ -161,9 +161,9 @@ public class AudioDecoder extends BaseDecoder {
                 running = false;
                 if (loopMode) {
                     loopFileInterface.onReset(false);
-                } else {
+                }/* else {
                     audioDecoderInterface.onAudioDecoderFinished();
-                }
+                }*/
             }
         }
     }

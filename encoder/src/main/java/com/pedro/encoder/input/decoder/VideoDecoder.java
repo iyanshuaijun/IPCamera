@@ -112,9 +112,9 @@ public class VideoDecoder extends BaseDecoder {
             running = false;
             if (loopMode) {
                 loopFileInterface.onReset(true);
-            } else {
+            }/* else {
                 videoDecoderInterface.onVideoDecoderFinished();
-            }
+            }*/
         }
     }
 

@@ -464,8 +464,14 @@ public abstract class FromFileBase
                 glInterface.removeMediaCodecSurface();
                 glInterface.stop();
             }
-            if (videoEnabled) videoDecoder.stop();
-            if (audioEnabled) audioDecoder.stop();
+            if (videoEnabled) {
+                videoDecoder.stop();
+                videoDecoderInterface.onVideoDecoderFinished();
+            }
+            if (audioEnabled) {
+                audioDecoder.stop();
+                audioDecoderInterface.onAudioDecoderFinished();
+            }
             if (audioEnabled && isAudioDeviceEnabled()) {
                 audioTrackPlayer.stop();
             }
