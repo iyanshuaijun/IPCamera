@@ -55,6 +55,7 @@ public class ImageTexture {
             frameBuffer = frameBufferArr[0];
             frameBufferTextureId = frameBufferTextureArr[0];
             bitmap.recycle();
+            bitmap = null;
         }
         return this;
     }

@@ -34,6 +34,9 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
     private var currentDateAndTime_watermark = ""
     private lateinit var folder: File
 
+    private val textObjectFilterRender = TextObjectFilterRender()
+    private var strList : ArrayList<String> = arrayListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -51,7 +54,6 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
 
     override fun onResume() {
         super.onResume()
-        initTimeWaterMarkFormat()
     }
 
     override fun onNewBitrateRtsp(bitrate: Long) {
@@ -106,6 +108,7 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
             R.id.b_start_stop -> if (!rtspServerCamera1.isStreaming) {
                 if (rtspServerCamera1.isRecording || rtspServerCamera1.prepareAudio() && rtspServerCamera1.prepareVideo(1920, 1080)) {
                     button.setText(R.string.stop_button)
+                    initTimeWaterMarkFormat()
                     rtspServerCamera1.startStream()
                     tv_url.text = rtspServerCamera1.getEndPointConnection()
                 } else {
@@ -208,17 +211,15 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
     }
 
     private fun initTimeWaterMarkFormat() {
-        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-        currentDateAndTime_watermark = sdf.format(Date())
-        val textObjectFilterRender = TextObjectFilterRender()
         rtspServerCamera1.glInterface.setFilter(textObjectFilterRender)
-        textObjectFilterRender.setText(currentDateAndTime_watermark, 22f, Color.WHITE)
-        textObjectFilterRender.setDefaultScale(
-            rtspServerCamera1.streamWidth,
-            rtspServerCamera1.streamHeight
-        )
-//        spriteGestureController.setBaseObjectFilterRender(textObjectFilterRender) //Optional
+        textObjectFilterRender.setDefaultScale(640, 480)
+        initStrList()
+        textObjectFilterRender.setImageTextureList(strList)
     }
 
+    private fun initStrList() {
+        strList.add("0.0V 0.0V 0.0A 0% 0℃ T")
+        strList.add("SIM卡盖未拧紧")
+    }
 
 }

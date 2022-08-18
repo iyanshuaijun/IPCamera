@@ -17,14 +17,11 @@
 package com.pedro.encoder.input.gl.render.filters.object;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.PointF;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -81,15 +78,20 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
     protected float alpha = 1f;
     protected boolean shouldLoad = false;
 
+    private boolean inited = true;
+
     private final static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private int mStreamWidth;
     private int mStreamHeight;
     private int textureId;
     private int frameBuffer;
-    private int mSize = 22;
+    private int mSize = 0;
     private String str;
     private ArrayList<Integer> bitmapWidthList;
     private ArrayList<Integer> bitmapHeightList;
+
+    private ArrayList<String> mStrList;
+    private ArrayList<Integer> mImageTextureIdChangedList;
 
     public BaseObjectFilterRender() {
         squareVertex = ByteBuffer.allocateDirect(squareVertexDataFilter.length * FLOAT_SIZE_BYTES)
@@ -127,9 +129,9 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
         bitmapWidthList = new ArrayList<>();
         bitmapHeightList = new ArrayList<>();
         ImageTexture imageTexture;
-        for (int i = 0; i < 22; i++) {
+        for (int i = 0; i < 19; i++) {
             imageTexture = new ImageTexture(width, height);
-            if (i < 19) {   //左上角时间水印（textureId：0~18）
+//            if (i < 19) {   //左上角时间水印（textureId：0~18）
                 if (i == 10) {
                     imageTexture.loadBitmap(BitmapUtils.textToBitmap("-"));
                 } else if (i == 11) {
@@ -139,16 +141,67 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
                 } else {
                     imageTexture.loadBitmap(BitmapUtils.textToBitmap("*"));
                 }
-            } else if (i == 19) {   //右上角自定义水印（textureId：19）
-                imageTexture.loadBitmap(BitmapUtils.textToBitmap("晴转多云，xx℃"));
-            } else if (i == 20) {   //左下角自定义水印（textureId：20）
-                imageTexture.loadBitmap(BitmapUtils.textToBitmap("自定义符号~！@#￥%……&*（）"));
-            } else {   //右下角自定义水印（textureId：21）
-                imageTexture.loadBitmap(BitmapUtils.textToBitmap("自定义符号{}：”《》？+-*/"));
-            }
+//            }
+//            else if (i == 19) {   //右上角自定义水印（textureId：19）
+//                imageTexture.loadBitmap(BitmapUtils.textToBitmap("晴转多云，xx℃"));
+//            } else if (i == 20) {   //左下角自定义水印（textureId：20）
+//                imageTexture.loadBitmap(BitmapUtils.textToBitmap("自定义符号~！@#￥%……&*（）"));
+//            } else {   //右下角自定义水印（textureId：21）
+//                imageTexture.loadBitmap(BitmapUtils.textToBitmap("自定义符号{}：”《》？+-*/"));
+//            }
             imageTextureList.add(imageTexture);
             bitmapWidthList.add(imageTexture.getImageWidth());
             bitmapHeightList.add(imageTexture.getImageHeight());
+        }
+        mSize = imageTextureList.size();
+        mImageTextureIdChangedList = new ArrayList<>();
+    }
+
+    public void setImageTextureList(ArrayList<String> strList) {
+        this.mStrList = strList;
+        shouldLoad = true;
+    }
+
+    public void updateStringList(ArrayList<String> strList, int[] index, String[] str) {
+        if (index == null || index.length == 0) {
+            return;
+        }
+        if (mImageTextureIdChangedList != null) {
+            mImageTextureIdChangedList.clear();
+            for (int i = 0; i < index.length; i++) {
+                strList.set(index[i], str[i]);
+                mImageTextureIdChangedList.add(index[i]);
+            }
+        }
+        setImageTextureList(strList);
+    }
+
+    public void updateImageTextureList() {
+        if (mStrList == null) {
+            return;
+        }
+        int strListSize = mStrList.size();
+        ImageTexture imageTexture;
+        for (int i = 0; i < strListSize; i++) {
+            if (strListSize + 19 > mSize) {
+                imageTexture = new ImageTexture(width, height);
+                imageTexture.loadBitmap(BitmapUtils.textToBitmap(mStrList.get(i)));
+                imageTextureList.add(imageTexture);
+                bitmapWidthList.add(imageTexture.getImageWidth());
+                bitmapHeightList.add(imageTexture.getImageHeight());
+            }
+        }
+        if (mImageTextureIdChangedList != null && mImageTextureIdChangedList.size() != 0) {
+            for (int i = 0; i < mImageTextureIdChangedList.size(); i++) {
+                int j = 19 + i;
+                imageTexture = imageTextureList.get(j);
+                imageTexture.destroy();
+                imageTexture.loadBitmap(BitmapUtils.textToBitmap(mStrList.get(mImageTextureIdChangedList.get(i))));
+                imageTextureList.set(j, imageTexture);
+                bitmapWidthList.set(j, imageTexture.getImageWidth());
+                bitmapHeightList.set(j, imageTexture.getImageHeight());
+            }
+            mImageTextureIdChangedList.clear();
         }
         mSize = imageTextureList.size();
     }
@@ -158,9 +211,13 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
         GlUtil.checkGlError("drawFilter start");
         GLES20.glViewport(0, 0, width, height);
 
-        if (shouldLoad) {
+        if (inited) {
             releaseTexture();
             initImageTexture();
+            inited = false;
+        }
+        if (shouldLoad) {
+            updateImageTextureList();
             shouldLoad = false;
         }
         ImageTexture preImageTexture = null;
@@ -192,15 +249,9 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
                 } else if (str.equals(" ") || str.equals("*")) {
                     continue;
                 }
-            } else if (i == 19) {
-                setPosition(TranslateTo.TOP_RIGHT);
-                str = "19";
-            } else if (i == 20) {
-                setPosition(TranslateTo.BOTTOM_LEFT);
-                str = "20";
-            } else if (i == 21) {
-                setPosition(TranslateTo.BOTTOM_RIGHT);
-                str = "21";
+            } else {
+                setPosition(0f, (i - 18) * 4f);
+                str = "" + i;
             }
 
             GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, frameBuffer);
