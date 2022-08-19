@@ -466,11 +466,11 @@ public abstract class FromFileBase
             }
             if (videoEnabled) {
                 videoDecoder.stop();
-//                videoDecoderInterface.onVideoDecoderFinished();
+                videoDecoderInterface.onVideoDecoderFinished();
             }
             if (audioEnabled) {
                 audioDecoder.stop();
-//                audioDecoderInterface.onAudioDecoderFinished();
+                audioDecoderInterface.onAudioDecoderFinished();
             }
             if (audioEnabled && isAudioDeviceEnabled()) {
                 audioTrackPlayer.stop();
