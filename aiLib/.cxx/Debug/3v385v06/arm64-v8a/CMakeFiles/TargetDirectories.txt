@@ -1,0 +1,4 @@
+D:/code/android/UbeeskyAIDemo/aiLib/.cxx/Debug/3v385v06/arm64-v8a/CMakeFiles/aiNative.dir
+D:/code/android/UbeeskyAIDemo/aiLib/.cxx/Debug/3v385v06/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/code/android/UbeeskyAIDemo/aiLib/.cxx/Debug/3v385v06/arm64-v8a/CMakeFiles/RTSP.dir
+D:/code/android/UbeeskyAIDemo/aiLib/.cxx/Debug/3v385v06/arm64-v8a/CMakeFiles/rebuild_cache.dir

@@ -18,6 +18,12 @@
         android:id="@+id/surfaceView"
         />
 
+    <com.pedro.sample.OverlayView
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true" />
+
     <TextView
         android:textSize="24sp"
         android:textColor="@color/appColor"
@@ -46,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:id="@+id/b_record"
+            android:visibility="gone"
             android:layout_marginEnd="5dp" />
 
         <Button
@@ -63,6 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/switch_camera"
+            android:visibility="gone"
             />
     </LinearLayout>
 </RelativeLayout>

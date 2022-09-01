@@ -1,0 +1,37 @@
+{
+  "buildFiles": [
+    "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\CMakeLists.txt",
+    "D:\\Android\\sdk\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Android\\sdk\\ndk\\21.0.6113669\\build\\cmake\\platforms.cmake"
+  ],
+  "cleanCommands": [
+    "D:\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "D:\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "RTSP-Debug-arm64-v8a": {
+      "artifactName": "RTSP",
+      "buildCommand": "D:\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\.cxx\\cmake\\debug\\arm64-v8a\" RTSP",
+      "abi": "arm64-v8a",
+      "output": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libRTSP.so",
+      "runtimeFiles": [
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libavcodec.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libavfilter.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libavformat.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libavutil.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libswresample.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libswscale.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libpostproc.so"
+      ]
+    },
+    "aiNative-Debug-arm64-v8a": {
+      "artifactName": "aiNative",
+      "buildCommand": "D:\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\.cxx\\cmake\\debug\\arm64-v8a\" aiNative",
+      "abi": "arm64-v8a",
+      "output": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libaiNative.so",
+      "runtimeFiles": [
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\tnn\\arm64-v8a\\libTNN.so"
+      ]
+    }
+  }
+}

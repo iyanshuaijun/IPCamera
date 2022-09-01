@@ -1,0 +1,127 @@
+[
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\fps_counter_jni.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\fps_counter_jni.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/fps_counter_jni.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\helper_jni.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\helper_jni.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/helper_jni.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\object_detector_nanodet.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\object_detector_nanodet.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/object_detector_nanodet.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\object_detector_nanodet_jni.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\object_detector_nanodet_jni.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/object_detector_nanodet_jni.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\object_detector_ssd.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\object_detector_ssd.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/object_detector_ssd.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\object_detector_yolo.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\object_detector_yolo.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/object_detector_yolo.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\sample_timer.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\sample_timer.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/sample_timer.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\tnn_fps_counter.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\tnn_fps_counter.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/tnn_fps_counter.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\tnn_lib.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\tnn_lib.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/tnn_lib.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\cc\\tnn_sdk_sample.cc.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\cc\\tnn_sdk_sample.cc",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/cc/tnn_sdk_sample.cc"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\kannarotate.c.o   -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\kannarotate.c",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/libs/kannarotate-android-lib/src/kannarotate.c"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_2.c.o   -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_2.c",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/libs/kannarotate-android-lib/src/rotate_2.c"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_3.c.o   -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_3.c",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/libs/kannarotate-android-lib/src/rotate_3.c"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_4.c.o   -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_4.c",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/libs/kannarotate-android-lib/src/rotate_4.c"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_5.c.o   -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_5.c",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/libs/kannarotate-android-lib/src/rotate_5.c"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_6.c.o   -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_6.c",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/libs/kannarotate-android-lib/src/rotate_6.c"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_7.c.o   -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_7.c",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/libs/kannarotate-android-lib/src/rotate_7.c"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\aiNative.dir\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_8.c.o   -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_8.c",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/libs/kannarotate-android-lib/src/rotate_8.c"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DRTSP_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\RTSP.dir\\src\\main\\cpp\\RTSPRender.cpp.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\RTSPRender.cpp",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/RTSPRender.cpp"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DRTSP_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\RTSP.dir\\src\\main\\cpp\\FFDemux.cpp.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\FFDemux.cpp",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/FFDemux.cpp"
+},
+
+{
+  "directory": "D:/code/android/UbeeskyAIDemo/aiLib/.cxx/RelWithDebInfo/415g3j4k/arm64-v8a",
+  "command": "D:\\AndroidSDK\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/AndroidSDK/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DRTSP_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -O2 -g -DNDEBUG -fPIC   -o CMakeFiles\\RTSP.dir\\src\\main\\cpp\\FFBridge.cpp.o -c D:\\code\\android\\UbeeskyAIDemo\\aiLib\\src\\main\\cpp\\FFBridge.cpp",
+  "file": "D:/code/android/UbeeskyAIDemo/aiLib/src/main/cpp/FFBridge.cpp"
+}
+]

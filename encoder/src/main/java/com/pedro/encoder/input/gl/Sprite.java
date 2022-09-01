@@ -17,6 +17,7 @@
 package com.pedro.encoder.input.gl;
 
 import android.graphics.PointF;
+import android.util.Log;
 
 import com.pedro.encoder.utils.gl.TranslateTo;
 
@@ -49,6 +50,7 @@ public class Sprite {
 
     private PointF scale;
     private PointF position;
+    private int mIndex;
 
     public Sprite() {
         reset();
@@ -61,6 +63,10 @@ public class Sprite {
     public void translate(float deltaX, float deltaY) {
         position.x = deltaX;
         position.y = deltaY;
+    }
+
+    public void setIndex(int index) {
+        mIndex = index;
     }
 
     /**
@@ -94,19 +100,20 @@ public class Sprite {
                 break;
             case TOP_RIGHT:
                 this.position.x = 100f - scale.x;
-                this.position.y = 0f;
+                this.position.y = 0f + mIndex * 4f;
                 break;
             case BOTTOM_LEFT:
                 this.position.x = 0f;
-                this.position.y = 100f - scale.y;
+                this.position.y = 100f/* - scale.y*/ - mIndex * 4f;
                 break;
             case BOTTOM_RIGHT:
                 this.position.x = 100f - scale.x;
-                this.position.y = 100f - scale.y;
+                this.position.y = 100f/* - scale.y*/ - mIndex * 4f;
                 break;
             default:
                 break;
         }
+        mIndex = 0;
     }
 
     /**

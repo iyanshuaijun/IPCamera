@@ -1,0 +1,8 @@
+Executable : D:\AndroidSDK\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+D:\code\android\UbeeskyAIDemo\aiLib\.cxx\Debug\3v385v06\arm64-v8a
+RTSP
+aiNative
+jvmArgs : 
+

@@ -1,0 +1,24 @@
+# ninja log v5
+35	1109	683618498	CMakeFiles/RTSP.dir/src/main/cpp/RTSPRender.cpp.o	496a4ca52df8122
+7	1935	683618499	CMakeFiles/aiNative.dir/src/main/cpp/cc/helper_jni.cc.o	736774bcaddfc516
+1935	2236	683618500	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/kannarotate.c.o	aa792827ebc08334
+26	2277	683618500	CMakeFiles/aiNative.dir/src/main/cpp/cc/sample_timer.cc.o	dc6a8e1f3be6b2a2
+1	2408	683618500	CMakeFiles/aiNative.dir/src/main/cpp/cc/fps_counter_jni.cc.o	b5a567022dc2f971
+2236	3007	683618500	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_2.c.o	22d8eaa37772b27a
+23	3029	683618500	CMakeFiles/aiNative.dir/src/main/cpp/cc/object_detector_yolo.cc.o	2494a14bdc6e16c8
+28	3175	683618501	CMakeFiles/aiNative.dir/src/main/cpp/cc/tnn_fps_counter.cc.o	bfb51c4f112d30da
+2277	3245	683618501	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_3.c.o	d6e25e3afb676f9c
+3029	3444	683618501	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_6.c.o	ba1c89313b17c90c
+3007	3493	683618501	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_5.c.o	3d69e9cb9dd606eb
+2408	3756	683618501	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_4.c.o	b68d1c6ffec0b301
+13	3757	683618501	CMakeFiles/aiNative.dir/src/main/cpp/cc/object_detector_ssd.cc.o	89eaf0b7a42b4ede
+3245	3768	683618501	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_8.c.o	b0ec79b8f7019eed
+9	3787	683618501	CMakeFiles/aiNative.dir/src/main/cpp/cc/object_detector_nanodet.cc.o	ef70bb6f9b1e3a94
+3175	3852	683618501	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_7.c.o	1a736d0464a5c195
+3493	4236	683618502	CMakeFiles/RTSP.dir/src/main/cpp/FFBridge.cpp.o	6117510e5445d056
+11	4342	683618502	CMakeFiles/aiNative.dir/src/main/cpp/cc/object_detector_nanodet_jni.cc.o	3c6b447914e95f86
+3444	4538	683618502	CMakeFiles/RTSP.dir/src/main/cpp/FFDemux.cpp.o	7f70796f4e83ca56
+32	4550	683618502	CMakeFiles/aiNative.dir/src/main/cpp/cc/tnn_lib.cc.o	7548c55c3ecf7506
+1111	5394	683618503	CMakeFiles/aiNative.dir/src/main/cpp/cc/tnn_sdk_sample.cc.o	57f54c643acc7e
+4538	6008	683618503	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libRTSP.so	b396667d6474e623
+5394	6261	683618504	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libaiNative.so	7409b782dee4841

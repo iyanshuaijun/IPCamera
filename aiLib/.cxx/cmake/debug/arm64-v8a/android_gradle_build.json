@@ -1,0 +1,171 @@
+{
+  "stringTable": {
+    "0": "E:/Test/RTSP/RTSP-Server-github/IPCamera/aiLib/.cxx/cmake/debug/arm64-v8a",
+    "1": "--target=aarch64-none-linux-android24 --gcc-toolchain=D:/Android/sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++11 -O0 -fno-limit-debug-info -fPIC",
+    "2": "--target=aarch64-none-linux-android24 --gcc-toolchain=D:/Android/sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DaiNative_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC",
+    "3": "--target=aarch64-none-linux-android24 --gcc-toolchain=D:/Android/sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DRTSP_EXPORTS -I../../../../src/main/cpp/libs/opencv/native/jni/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/include -I../../../../src/main/cpp/libs/kannarotate-android-lib/src -I../../../../src/main/cpp/libs/tnn/include -I../../../../src/main/cpp/cc -I../../../../src/main/cpp/libs/ffmpeg/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++11 -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\CMakeLists.txt",
+    "D:\\Android\\sdk\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Android\\sdk\\ndk\\21.0.6113669\\build\\cmake\\platforms.cmake"
+  ],
+  "cleanCommands": [
+    "D:\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "D:\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "RTSP-Debug-arm64-v8a": {
+      "buildCommand": "D:\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\.cxx\\cmake\\debug\\arm64-v8a\" RTSP",
+      "buildType": "debug",
+      "toolchain": "2567836324",
+      "abi": "arm64-v8a",
+      "artifactName": "RTSP",
+      "files": [
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\RTSPRender.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\FFDemux.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\FFBridge.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libRTSP.so",
+      "runtimeFiles": [
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libavcodec.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libavfilter.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libavformat.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libavutil.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libswresample.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libswscale.so",
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\ffmpeg\\lib\\libpostproc.so"
+      ]
+    },
+    "aiNative-Debug-arm64-v8a": {
+      "buildCommand": "D:\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\.cxx\\cmake\\debug\\arm64-v8a\" aiNative",
+      "buildType": "debug",
+      "toolchain": "2567836324",
+      "abi": "arm64-v8a",
+      "artifactName": "aiNative",
+      "files": [
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\fps_counter_jni.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\helper_jni.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\object_detector_nanodet.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\object_detector_nanodet_jni.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\object_detector_ssd.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\object_detector_yolo.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\sample_timer.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\tnn_fps_counter.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\tnn_lib.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\cc\\tnn_sdk_sample.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\kannarotate.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_2.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_3.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_4.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_5.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_6.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_7.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\kannarotate-android-lib\\src\\rotate_8.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libaiNative.so",
+      "runtimeFiles": [
+        "E:\\Test\\RTSP\\RTSP-Server-github\\IPCamera\\aiLib\\src\\main\\cpp\\libs\\tnn\\arm64-v8a\\libTNN.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "2567836324": {
+      "cCompilerExecutable": "D:\\Android\\sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "D:\\Android\\sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cc",
+    "cpp"
+  ]
+}

@@ -840,7 +840,7 @@ public class BitmapUtils {
     }
 
     //文字转图片
-    public static Bitmap textToBitmap(String msg) {
+        public static Bitmap textToBitmap(String msg) {
         Bitmap bmp;
         Canvas canvasTemp;
         Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -854,6 +854,9 @@ public class BitmapUtils {
         float baseline = -p.ascent(); // ascent() is negative
         int width = (int) (p.measureText(msg) + 0.5f); // round
         int height = (int) (baseline + p.descent() + 0.5f);
+        if (width == 0) {
+            width = 1;
+        }
 
         bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         canvasTemp = new Canvas(bmp);

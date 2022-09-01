@@ -18,6 +18,7 @@ package com.pedro.encoder.input.video;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -32,6 +33,8 @@ import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.Face;
 import android.hardware.camera2.params.MeteringRectangle;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.media.Image;
+import android.media.ImageReader;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -43,10 +46,13 @@ import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.TextureView;
 
+import com.ubeesky.lib.ai.AINative;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -96,6 +102,10 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
     private final Semaphore semaphore = new Semaphore(0);
     private CameraCallbacks cameraCallbacks;
 
+    private ImageReader imageReader;
+    private AINative aiNative;
+    private int frameNum = 0;
+
     //Face detector
     public interface FaceDetectorCallback {
         void onGetFaces(Face[] faces, Rect scaleSensor, int sensorOrientation);
@@ -109,6 +119,10 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
 
     public Camera2ApiManager(Context context) {
         cameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
+    }
+
+    public void setAiNative(AINative aiNative) {
+        this.aiNative = aiNative;
     }
 
     public void prepareCamera(SurfaceView surfaceView, Surface surface, int fps) {
@@ -129,6 +143,8 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
         this.surfaceEncoder = surface;
         this.fps = fps;
         prepared = true;
+        imageReader = ImageReader.newInstance(1920, 1080, ImageFormat.YUV_420_888, 12);
+        imageReader.setOnImageAvailableListener(mOnImageAvailableListener, cameraHandler);
     }
 
     public void prepareCamera(SurfaceTexture surfaceTexture, int width, int height, int fps) {
@@ -136,6 +152,8 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
         this.surfaceEncoder = new Surface(surfaceTexture);
         this.fps = fps;
         prepared = true;
+        imageReader = ImageReader.newInstance(width, height, ImageFormat.YUV_420_888, 12);
+        imageReader.setOnImageAvailableListener(mOnImageAvailableListener, cameraHandler);
     }
 
     public boolean isPrepared() {
@@ -147,6 +165,7 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
             final List<Surface> listSurfaces = new ArrayList<>();
             Surface preview = addPreviewSurface();
             if (preview != null) listSurfaces.add(preview);
+            if (imageReader != null) listSurfaces.add(imageReader.getSurface());
             if (surfaceEncoder != preview && surfaceEncoder != null)
                 listSurfaces.add(surfaceEncoder);
 
@@ -211,6 +230,125 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
             Log.e(TAG, "Error", e);
             return null;
         }
+    }
+
+    private ImageReader.OnImageAvailableListener mOnImageAvailableListener = reader -> {
+        Image image = reader.acquireNextImage();
+        if (image == null) {
+            return;
+        }
+
+        long c = System.currentTimeMillis();
+        Image.Plane[] planes = image.getPlanes();
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        //Y
+        ByteBuffer bufferY = planes[0].getBuffer();
+
+        //U(Cb)
+        ByteBuffer bufferU = planes[1].getBuffer();
+
+        //V(Cr)
+        ByteBuffer bufferV = planes[2].getBuffer();
+
+        // YUV数据集合
+//        byte[] i420 = yuv420ToNV21(bufferY, bufferU, bufferV, width, height);
+
+
+        byte[] yBytes = new byte[width * height];
+        byte[] uBytes = new byte[width * height / 4];
+        byte[] vBytes = new byte[width * height / 4];
+        byte[] i420 = new byte[width * height * 3 / 2];
+
+
+        int[] rowStrideArray = new int[planes.length];
+        for (int i = 0; i < planes.length; i++) {
+            int dstIndex = 0;
+            int uIndex = 0;
+            int vIndex = 0;
+            // 像素跨度
+            int pixelStride = planes[i].getPixelStride();
+            // 行跨度
+            int rowStride = planes[i].getRowStride();
+
+            rowStrideArray[i] = rowStride;
+
+            ByteBuffer buffer = planes[i].getBuffer();
+
+
+            byte[] bytes = new byte[buffer.capacity()];
+
+            buffer.get(bytes);
+            int srcIndex = 0;
+            if (i == 0) {
+                for (int j = 0; j < height; j++) {
+                    System.arraycopy(bytes, srcIndex, yBytes, dstIndex, width);
+                    srcIndex += rowStride;
+                    dstIndex += width;
+                }
+                System.arraycopy(yBytes, 0, i420, 0, yBytes.length);
+
+            } else if (i == 1) {
+                for (int j = 0; j < height / 2; j++) {
+                    // 根据像素跨度，收集U
+                    for (int k = 0; k < width / 2; k++) {
+                        uBytes[dstIndex++] = bytes[srcIndex];
+                        srcIndex += pixelStride;
+                    }
+
+                    if (pixelStride == 2) {
+                        srcIndex += rowStride - width;
+                    } else if (pixelStride == 1) {
+                        srcIndex += rowStride - width / 2;
+                    }
+                }
+
+                System.arraycopy(uBytes, 0, i420, yBytes.length, dstIndex);
+
+
+            } else if (i == 2) {
+                for (int j = 0; j < height / 2; j++) {
+                    for (int k = 0; k < width / 2; k++) {
+                        vBytes[dstIndex++] = bytes[srcIndex];
+                        srcIndex += pixelStride;
+                    }
+
+                    if (pixelStride == 2) {
+                        srcIndex += rowStride - width;
+                    } else if (pixelStride == 1) {
+                        srcIndex += rowStride - width / 2;
+                    }
+                }
+
+                System.arraycopy(vBytes, 0, i420, uBytes.length + yBytes.length, dstIndex);
+
+            }
+
+            System.arraycopy(uBytes, 0, i420, yBytes.length, uBytes.length);
+            System.arraycopy(vBytes, 0, i420, yBytes.length + uBytes.length, vBytes.length);
+
+//            if (onPreviewListener != null) {
+//                onPreviewListener.onPreviewFrame(i420, i420.length);
+//            }
+        }
+
+        image.close();
+        frameNum++;
+        if (frameNum == 4) {
+            doAIExpress(i420, width, height);
+            frameNum = 0;
+        }
+    };
+
+    /**
+     * ai执行解析
+     *
+     * @param frame 帧数据
+     */
+    public void doAIExpress(byte[] frame, int width, int height) {
+        // ai 喂数据
+        aiNative.detectFromStream(frame, width, height, width, height, 7);
     }
 
     private void setModeAuto(CaptureRequest.Builder builderInputSurface) {
@@ -952,7 +1090,7 @@ public class Camera2ApiManager extends CameraDevice.StateCallback {
                 surfaceEncoder = null;
                 Surface preview = addPreviewSurface();
                 if (preview != null) {
-                    CaptureRequest captureRequest = drawSurface(Collections.singletonList(preview));
+                    CaptureRequest captureRequest = drawSurface(Arrays.asList(preview, imageReader.getSurface()));
                     if (captureRequest != null) {
                         cameraCaptureSession.setRepeatingRequest(captureRequest, null, cameraHandler);
                     }

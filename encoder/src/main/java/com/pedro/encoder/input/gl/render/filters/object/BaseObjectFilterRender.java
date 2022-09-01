@@ -22,6 +22,7 @@ import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -72,7 +73,6 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
 
     protected int[] streamObjectTextureId = new int[]{-1};
     protected TextureLoader textureLoader = new TextureLoader();
-    private ArrayList<ImageTexture> imageTextureList;
     protected StreamObjectBase streamObject;
     private Sprite sprite;
     protected float alpha = 1f;
@@ -92,6 +92,23 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
 
     private ArrayList<String> mStrList;
     private ArrayList<Integer> mImageTextureIdChangedList;
+
+    private boolean setFinished = false;
+
+    private ArrayList<ImageTexture> imageTextureList;
+
+    private ArrayList<String> mStrList_left_top = new ArrayList<>();
+    private ArrayList<String> mStrList_right_top = new ArrayList<>();
+    private ArrayList<String> mStrList_left_bottom = new ArrayList<>();
+    private ArrayList<String> mStrList_right_bottom = new ArrayList<>();
+
+    private int size_left_top = 0;
+    private int size_right_top = 0;
+    private int size_left_bottom = 0;
+    private int size_right_bottom = 0;
+
+    private ArrayList<ArrayList<Integer>> mFourImageChangedList = new ArrayList<>();
+    private ArrayList<Integer> mChangeIndexList = new ArrayList<>();
 
     public BaseObjectFilterRender() {
         squareVertex = ByteBuffer.allocateDirect(squareVertexDataFilter.length * FLOAT_SIZE_BYTES)
@@ -124,7 +141,7 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
         uAlphaHandle = GLES20.glGetUniformLocation(program, "uAlpha");
     }
 
-    protected void initImageTexture() {
+    protected void initTimeImageTexture() {
         imageTextureList = new ArrayList<>();
         bitmapWidthList = new ArrayList<>();
         bitmapHeightList = new ArrayList<>();
@@ -154,29 +171,95 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
             bitmapHeightList.add(imageTexture.getImageHeight());
         }
         mSize = imageTextureList.size();
-        mImageTextureIdChangedList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            ArrayList<Integer> changeIndexList = new ArrayList<>();
+            mFourImageChangedList.add(changeIndexList);
+        }
     }
 
-    public void setImageTextureList(ArrayList<String> strList) {
-        this.mStrList = strList;
+    public void setImageTextureList(ArrayList<String> strList, TranslateTo positionTo) {
+        if (mStrList == null) {
+            mStrList = new ArrayList<>();
+        }
+        if (positionTo == TranslateTo.TOP_LEFT) {
+            this.mStrList_left_top = strList;
+            size_left_top = strList.size();
+        } else if (positionTo == TranslateTo.TOP_RIGHT) {
+            this.mStrList_right_top = strList;
+            size_right_top = strList.size();
+        } else if (positionTo == TranslateTo.BOTTOM_LEFT) {
+            this.mStrList_left_bottom = strList;
+            size_left_bottom = strList.size();
+        } else if (positionTo == TranslateTo.BOTTOM_RIGHT) {
+            this.mStrList_right_bottom = strList;
+            size_right_bottom = strList.size();
+        }
+        this.mStrList.addAll(strList);
         shouldLoad = true;
     }
 
-    public void updateStringList(ArrayList<String> strList, int[] index, String[] str) {
+    private int positionToInt(TranslateTo positionTo) {
+        switch (positionTo) {
+            case TOP_LEFT:
+                return 0;
+            case TOP_RIGHT:
+                return 1;
+            case BOTTOM_LEFT:
+                return 2;
+            case BOTTOM_RIGHT:
+                return 3;
+        }
+        return -1;
+    }
+
+    private ArrayList<String> indexToStrList(int changeIndex) {
+        switch (changeIndex) {
+            case 0:
+                return mStrList_left_top;
+            case 1:
+                return mStrList_right_top;
+            case 2:
+                return mStrList_left_bottom;
+            case 3:
+                return mStrList_right_bottom;
+        }
+        return null;
+    }
+
+    //修改的列表之前对应的ImageTexture总数量
+    private int indexNum(int index) {
+        int totalNum = 0;
+        if (index == 0) {
+            totalNum = 19;
+        } else if (index == 1) {
+            totalNum = 19 + size_left_top;
+        } else if (index == 2) {
+            totalNum = 19 + size_left_top + size_right_top;
+        } else if (index == 3) {
+            totalNum = 19 + size_left_top + size_right_top + size_left_bottom;
+        }
+        return totalNum;
+    }
+
+    public void updateStringList(ArrayList<String> strList, int[] index, String[] str, TranslateTo positionTo) {
+        if (!setFinished) {
+            return;
+        }
         if (index == null || index.length == 0) {
             return;
         }
-        if (mImageTextureIdChangedList != null) {
-            mImageTextureIdChangedList.clear();
+        int list_index = positionToInt(positionTo);
+        if (mFourImageChangedList.size() != 0 && mFourImageChangedList.get(list_index) != null) {
+            mFourImageChangedList.get(list_index).clear();
             for (int i = 0; i < index.length; i++) {
                 strList.set(index[i], str[i]);
-                mImageTextureIdChangedList.add(index[i]);
+                mFourImageChangedList.get(list_index).add(index[i]);
             }
         }
-        setImageTextureList(strList);
+        mChangeIndexList.add(positionToInt(positionTo));
     }
 
-    public void updateImageTextureList() {
+    public void loadImageTextureList() {
         if (mStrList == null) {
             return;
         }
@@ -191,17 +274,30 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
                 bitmapHeightList.add(imageTexture.getImageHeight());
             }
         }
-        if (mImageTextureIdChangedList != null && mImageTextureIdChangedList.size() != 0) {
-            for (int i = 0; i < mImageTextureIdChangedList.size(); i++) {
-                int j = 19 + i;
+        mSize = imageTextureList.size();
+    }
+
+    public void updateImageTextureList(int changeIndex) {
+        ArrayList<String> strList = indexToStrList(changeIndex);
+        if (mStrList == null) {
+            return;
+        }
+        int strListSize = strList.size();
+        int totalNum = indexNum(changeIndex);
+        ImageTexture imageTexture;
+        if (mFourImageChangedList.get(changeIndex) != null && mFourImageChangedList.get(changeIndex).size() != 0) {
+            for (int i = 0; i < mFourImageChangedList.get(changeIndex).size(); i++) {
+                int changeId = mFourImageChangedList.get(changeIndex).get(i);
+                mStrList.set(totalNum - 19 + changeId, strList.get(changeId));
+                int j = totalNum + changeId;
                 imageTexture = imageTextureList.get(j);
                 imageTexture.destroy();
-                imageTexture.loadBitmap(BitmapUtils.textToBitmap(mStrList.get(mImageTextureIdChangedList.get(i))));
+                imageTexture.loadBitmap(BitmapUtils.textToBitmap(mStrList.get(totalNum - 19 + changeId)));
                 imageTextureList.set(j, imageTexture);
                 bitmapWidthList.set(j, imageTexture.getImageWidth());
                 bitmapHeightList.set(j, imageTexture.getImageHeight());
             }
-            mImageTextureIdChangedList.clear();
+            mFourImageChangedList.get(changeIndex).clear();
         }
         mSize = imageTextureList.size();
     }
@@ -213,12 +309,19 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
 
         if (inited) {
             releaseTexture();
-            initImageTexture();
+            initTimeImageTexture();
             inited = false;
         }
         if (shouldLoad) {
-            updateImageTextureList();
+            loadImageTextureList();
+            setFinished = true;
             shouldLoad = false;
+        }
+        if (mChangeIndexList != null && mChangeIndexList.size() != 0) {
+            for (int i = 0; i < mChangeIndexList.size(); i++) {
+                updateImageTextureList(mChangeIndexList.get(i));
+            }
+            mChangeIndexList.clear();
         }
         ImageTexture preImageTexture = null;
         String time = formatter.format(new Date());
@@ -249,8 +352,17 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
                 } else if (str.equals(" ") || str.equals("*")) {
                     continue;
                 }
-            } else {
+            } else if (size_left_top != 0 && i < 19 + size_left_top){
                 setPosition(0f, (i - 18) * 4f);
+                str = "" + i;
+            } else if (size_right_top != 0 && i < 19 + size_left_top + size_right_top) {
+                setPosition(TranslateTo.TOP_RIGHT, i - 19 - size_left_top);
+                str = "" + i;
+            } else if (size_left_bottom != 0 && i < 19 + size_left_top + size_right_top + size_left_bottom) {
+                setPosition(TranslateTo.BOTTOM_LEFT, i - 18 - size_left_top - size_right_top);
+                str = "" + i;
+            } else if (size_right_bottom != 0) {
+                setPosition(TranslateTo.BOTTOM_RIGHT, i - 18 - size_left_top - size_right_top - size_left_bottom);
                 str = "" + i;
             }
 
@@ -327,6 +439,12 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
     }
 
     public void setPosition(TranslateTo positionTo) {
+        sprite.translate(positionTo);
+        squareVertexObject.put(sprite.getTransformedVertices()).position(0);
+    }
+
+    public void setPosition(TranslateTo positionTo, int index) {
+        sprite.setIndex(index);
         sprite.translate(positionTo);
         squareVertexObject.put(sprite.getTransformedVertices()).position(0);
     }

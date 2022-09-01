@@ -1,0 +1,22 @@
+                Executable : D:\Android\sdk\cmake\3.10.2.4988404\bin\cmake.exe
+arguments : 
+-HE:\Test\RTSP\RTSP-Server-github\IPCamera\aiLib
+-DCMAKE_CXX_FLAGS=-std=c++11
+-DCMAKE_FIND_ROOT_PATH=E:\Test\RTSP\RTSP-Server-github\IPCamera\aiLib\.cxx\cmake\debug\prefab\arm64-v8a\prefab
+-DCMAKE_BUILD_TYPE=Debug
+-DCMAKE_TOOLCHAIN_FILE=D:\Android\sdk\ndk\21.0.6113669\build\cmake\android.toolchain.cmake
+-DANDROID_ABI=arm64-v8a
+-DANDROID_NDK=D:\Android\sdk\ndk\21.0.6113669
+-DANDROID_PLATFORM=android-24
+-DCMAKE_ANDROID_ARCH_ABI=arm64-v8a
+-DCMAKE_ANDROID_NDK=D:\Android\sdk\ndk\21.0.6113669
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=E:\Test\RTSP\RTSP-Server-github\IPCamera\aiLib\build\intermediates\cmake\debug\obj\arm64-v8a
+-DCMAKE_MAKE_PROGRAM=D:\Android\sdk\cmake\3.10.2.4988404\bin\ninja.exe
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_SYSTEM_VERSION=24
+-BE:\Test\RTSP\RTSP-Server-github\IPCamera\aiLib\.cxx\cmake\debug\arm64-v8a
+-GNinja
+jvmArgs : 
+
+Build command args:

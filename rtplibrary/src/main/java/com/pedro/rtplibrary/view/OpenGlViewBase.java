@@ -210,10 +210,8 @@ public abstract class OpenGlViewBase extends SurfaceView
 
     @Override
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        Log.i(TAG, "onFrameAvailable");
         synchronized (sync) {
             frameAvailable = true;
-            Log.i(TAG, "onFrameAvailable : frameAvailable = " + frameAvailable);
             sync.notifyAll();
         }
     }

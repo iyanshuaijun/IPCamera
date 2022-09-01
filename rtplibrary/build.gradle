@@ -46,5 +46,6 @@ dependencies {
     api project(':encoder')
     api project(':rtmp')
     api project(':rtsp')
+    implementation project(':aiLib')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }

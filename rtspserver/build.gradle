@@ -48,6 +48,7 @@ afterEvaluate {
 
 dependencies {
     implementation project(':rtplibrary')
+    implementation project(':aiLib')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 //    implementation 'com.github.pedroSG94.rtmp-rtsp-stream-client-java:rtplibrary:2.1.8'
 }

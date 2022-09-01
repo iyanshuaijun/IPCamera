@@ -10,21 +10,22 @@ import com.pedro.rtplibrary.view.LightOpenGlView
 import com.pedro.rtplibrary.view.OpenGlView
 import com.pedro.rtsp.rtsp.VideoCodec
 import com.pedro.rtsp.utils.ConnectCheckerRtsp
+import com.ubeesky.lib.ai.AINative
 import java.nio.ByteBuffer
 
 open class RtspServerCamera2 : Camera2Base {
 
   private val rtspServer: RtspServer
   private var mCameraId: String = "0"
-  constructor(surfaceView: SurfaceView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int, cameraId: String) : super(
-          surfaceView) {
+  constructor(surfaceView: SurfaceView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int, cameraId: String, aiNative: AINative?) : super(
+          surfaceView, aiNative) {
     mCameraId = cameraId
 
     rtspServer = RtspServer(connectCheckerRtsp, port, cameraId)
   }
 
-  constructor(openGlView: OpenGlView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int, cameraId: String) : super(
-    openGlView) {
+  constructor(openGlView: OpenGlView, connectCheckerRtsp: ConnectCheckerRtsp, port: Int, cameraId: String, aiNative: AINative?) : super(
+    openGlView, aiNative) {
     mCameraId = cameraId
 
     rtspServer = RtspServer(connectCheckerRtsp, port, cameraId)

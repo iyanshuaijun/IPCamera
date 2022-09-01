@@ -1,0 +1,24 @@
+# ninja log v5
+15	1709	683042407	CMakeFiles/aiNative.dir/src/main/cpp/cc/tnn_sdk_sample.cc.o	1affada9b4ec94f9
+19	379	683042406	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_3.c.o	bb1c0f8a1dd99645
+17	183	683042406	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/kannarotate.c.o	afc12428a9d03cc7
+24	403	683042406	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_6.c.o	a45fbfaca7064faa
+21	381	683042406	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_4.c.o	f7ef0fd1f9cea23e
+18	370	683042406	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_2.c.o	581e89c79441e948
+5	942	683042407	CMakeFiles/aiNative.dir/src/main/cpp/cc/helper_jni.cc.o	59fb5993f7e3660c
+22	415	683042406	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_5.c.o	b4955bcef69ef9ef
+183	589	683042406	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_7.c.o	5a36e348884f6c38
+26	416	683042406	CMakeFiles/aiNative.dir/src/main/cpp/libs/kannarotate-android-lib/src/rotate_8.c.o	3733b83477236c3
+8	585	683042406	CMakeFiles/aiNative.dir/src/main/cpp/cc/sample_timer.cc.o	b3119daec86a51fb
+370	826	683042407	CMakeFiles/RTSP.dir/src/main/cpp/FFDemux.cpp.o	c97d1f717e1cc7ba
+4	689	683042406	CMakeFiles/aiNative.dir/src/main/cpp/cc/fps_counter_jni.cc.o	9502b1843ba6f84e
+23	689	683042406	CMakeFiles/RTSP.dir/src/main/cpp/FFBridge.cpp.o	353347f1a884e125
+10	823	683042407	CMakeFiles/aiNative.dir/src/main/cpp/cc/tnn_fps_counter.cc.o	bce10d82ed79623d
+379	835	683042407	CMakeFiles/RTSP.dir/src/main/cpp/RTSPRender.cpp.o	48a340efa50443a3
+835	910	683042407	../../../../build/intermediates/cxx/Debug/3v385v06/obj/arm64-v8a/libRTSP.so	32ed8caa80dd9f8b
+13	1347	683042407	CMakeFiles/aiNative.dir/src/main/cpp/cc/object_detector_yolo.cc.o	1d7b54c270326d52
+16	1204	683042407	CMakeFiles/aiNative.dir/src/main/cpp/cc/tnn_lib.cc.o	b2839c06157e669f
+12	1210	683042407	CMakeFiles/aiNative.dir/src/main/cpp/cc/object_detector_ssd.cc.o	7db7f9e49fe1bb49
+7	1310	683042407	CMakeFiles/aiNative.dir/src/main/cpp/cc/object_detector_nanodet.cc.o	d6f18bd5e377e5d2
+11	1412	683042407	CMakeFiles/aiNative.dir/src/main/cpp/cc/object_detector_nanodet_jni.cc.o	37190b1b38991208
+1710	1859	683042408	../../../../build/intermediates/cxx/Debug/3v385v06/obj/arm64-v8a/libaiNative.so	201c36ec090648e9

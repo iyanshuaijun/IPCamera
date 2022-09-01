@@ -1,0 +1,3 @@
+D:/code/android/UbeeskyAIDemo/aiLib/.cxx/Debug/382tu4m1/x86/CMakeFiles/ai.dir
+D:/code/android/UbeeskyAIDemo/aiLib/.cxx/Debug/382tu4m1/x86/CMakeFiles/edit_cache.dir
+D:/code/android/UbeeskyAIDemo/aiLib/.cxx/Debug/382tu4m1/x86/CMakeFiles/rebuild_cache.dir

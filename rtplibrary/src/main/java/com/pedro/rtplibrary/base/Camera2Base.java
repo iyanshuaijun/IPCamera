@@ -59,6 +59,7 @@ import com.pedro.rtplibrary.view.GlInterface;
 import com.pedro.rtplibrary.view.LightOpenGlView;
 import com.pedro.rtplibrary.view.OffScreenGlThread;
 import com.pedro.rtplibrary.view.OpenGlView;
+import com.ubeesky.lib.ai.AINative;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -97,6 +98,8 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
     private int previewWidth, previewHeight;
     private final FpsListener fpsListener = new FpsListener();
 
+    private AINative aiNative;
+
     /**
      * @deprecated This view produce rotations problems and could be unsupported in future versions.
      * Use {@link Camera2Base#Camera2Base(OpenGlView)} or {@link Camera2Base#Camera2Base(LightOpenGlView)}
@@ -115,16 +118,30 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
      * instead.
      */
     @Deprecated
+    public Camera2Base(SurfaceView surfaceView, AINative aiNative) {
+        this.surfaceView = surfaceView;
+        this.context = surfaceView.getContext();
+        this.aiNative = aiNative;
+        init(context);
+    }
+
+    /**
+     * @deprecated This view produce rotations problems and could be unsupported in future versions.
+     * Use {@link Camera2Base#Camera2Base(OpenGlView)} or {@link Camera2Base#Camera2Base(LightOpenGlView)}
+     * instead.
+     */
+    @Deprecated
     public Camera2Base(TextureView textureView) {
         this.textureView = textureView;
         this.context = textureView.getContext();
         init(context);
     }
 
-    public Camera2Base(OpenGlView openGlView) {
+    public Camera2Base(OpenGlView openGlView, AINative aiNative) {
         context = openGlView.getContext();
         glInterface = openGlView;
         glInterface.init();
+        this.aiNative = aiNative;
         init(context);
     }
 
@@ -147,6 +164,7 @@ public abstract class Camera2Base implements GetAacData, GetVideoData, GetMicrop
 
     private void init(Context context) {
         cameraManager = new Camera2ApiManager(context);
+        cameraManager.setAiNative(this.aiNative);
         videoEncoder = new VideoEncoder(this);
         setMicrophoneMode(MicrophoneMode.ASYNC);
         recordController = new AndroidMuxerRecordController();

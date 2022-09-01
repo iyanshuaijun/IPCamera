@@ -1,1 +1,1 @@
-include ':app', ':rtspserver',':rtmp', ':encoder', ':rtsp', ':rtplibrary'
+include ':app', ':rtspserver',':rtmp', ':encoder', ':rtsp', ':rtplibrary', ':aiLib'

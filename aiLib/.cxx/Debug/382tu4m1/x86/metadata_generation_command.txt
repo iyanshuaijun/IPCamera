@@ -1,0 +1,23 @@
+                    Executable : D:\AndroidSDK\cmake\3.18.1\bin\cmake.exe
+arguments : 
+-HD:\code\android\UbeeskyAIDemo\aiLib\src\main\cpp
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=24
+-DANDROID_PLATFORM=android-24
+-DANDROID_ABI=x86
+-DCMAKE_ANDROID_ARCH_ABI=x86
+-DANDROID_NDK=D:\AndroidSDK\ndk\21.4.7075529
+-DCMAKE_ANDROID_NDK=D:\AndroidSDK\ndk\21.4.7075529
+-DCMAKE_TOOLCHAIN_FILE=D:\AndroidSDK\ndk\21.4.7075529\build\cmake\android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=D:\AndroidSDK\cmake\3.18.1\bin\ninja.exe
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\code\android\UbeeskyAIDemo\aiLib\build\intermediates\cxx\Debug\382tu4m1\obj\x86
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=D:\code\android\UbeeskyAIDemo\aiLib\build\intermediates\cxx\Debug\382tu4m1\obj\x86
+-DCMAKE_BUILD_TYPE=Debug
+-BD:\code\android\UbeeskyAIDemo\aiLib\.cxx\Debug\382tu4m1\x86
+-GNinja
+jvmArgs : 
+
+
+                    Build command args: []
+                    Version: 2
