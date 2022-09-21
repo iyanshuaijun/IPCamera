@@ -291,7 +291,8 @@ class CameraDemoActivity : AppCompatActivity(), ConnectCheckerRtsp, View.OnClick
     }
 
     override fun steamAIResult(results: Array<AIDetectResult>?) {
-        overlayView.setResults(results)
+//        overlayView.setResults(results)
+        textObjectFilterRender.setRectResult(results)
         printArray(results)
     }
 

@@ -18,6 +18,7 @@ package com.pedro.encoder.input.gl.render.filters.object;
 
 import android.content.Context;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
@@ -35,12 +36,14 @@ import com.pedro.encoder.utils.BitmapUtils;
 import com.pedro.encoder.utils.gl.GlUtil;
 import com.pedro.encoder.utils.gl.StreamObjectBase;
 import com.pedro.encoder.utils.gl.TranslateTo;
+import com.ubeesky.lib.ai.AIDetectResult;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -109,6 +112,10 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
 
     private ArrayList<ArrayList<Integer>> mFourImageChangedList = new ArrayList<>();
     private ArrayList<Integer> mChangeIndexList = new ArrayList<>();
+
+    private ArrayList<ImageTexture> rectImageTextureList = new ArrayList<>();
+    private ArrayList<AIDetectResult> resultList = new ArrayList<>();
+    private boolean isLoaded = true;
 
     public BaseObjectFilterRender() {
         squareVertex = ByteBuffer.allocateDirect(squareVertexDataFilter.length * FLOAT_SIZE_BYTES)
@@ -302,6 +309,53 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
         mSize = imageTextureList.size();
     }
 
+    public void setRectResult(AIDetectResult[] results) {
+        resultList.clear();
+        if (results != null) {
+            Collections.addAll(resultList, results);
+        }
+        isLoaded = false;
+    }
+
+    /*
+     新增ImageTexture（图像纹理），先将所要绘制的图形/文字，通过loadBitmap赋给当前纹理。
+     将生成的纹理，加入imageTextureList，imageTextureList负责当前屏幕所有纹理的管理和统一渲染，
+     opengl渲染方式已在函数drawFilter中配置完成，后续新增纹理无需额外修改，只需要维护imageTextureList和bitmapWidthList、bitmapHeightList即可。
+
+     当纹理内容需要更改，要先调用imageTexture.destroy()，再进行移除/重设等操作，否则会导致内存溢出。
+     */
+    public void setRectImageTextureList(ArrayList<AIDetectResult> results) {
+        ImageTexture imageTexture;
+        if (rectImageTextureList != null && rectImageTextureList.size() != 0) {
+            for (int i = 0; i < rectImageTextureList.size(); i++) {
+                imageTexture = rectImageTextureList.get(i);
+                imageTexture.destroy();
+                imageTextureList.remove(imageTextureList.size() - 1 - i);
+                bitmapWidthList.remove(bitmapWidthList.size() - 1 - i);
+                bitmapHeightList.remove(bitmapHeightList.size() - 1 - i);
+            }
+            mSize = imageTextureList.size();
+            rectImageTextureList.clear();
+        }
+        if (results != null && results.size() != 0) {
+            for (int i = 0; i < results.size(); i++) {
+                imageTexture = new ImageTexture(width, height);
+                AIDetectResult result = results.get(i);
+                Rect box = new Rect((int)(result.startX), (int)(result.startY),
+                        (int)(result.endX), (int)(result.endY));
+                String name = result.getClassName();
+                String confidence = result.getConfidence() + "%";
+                imageTexture.loadBitmap(BitmapUtils.rectToBitmap(box, name, confidence));
+                rectImageTextureList.add(imageTexture);
+                imageTextureList.add(imageTexture);
+                bitmapWidthList.add(imageTexture.getImageWidth());
+                bitmapHeightList.add(imageTexture.getImageHeight());
+            }
+        }
+        mSize = imageTextureList.size();
+    }
+
+
     @Override
     protected void drawFilter() {
         GlUtil.checkGlError("drawFilter start");
@@ -316,6 +370,11 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
             loadImageTextureList();
             setFinished = true;
             shouldLoad = false;
+        }
+        //AIDetectResult[] results值传入之后，再创建imageTexture纹理
+        if (!isLoaded) {
+            setRectImageTextureList(resultList);
+            isLoaded = true;
         }
         if (mChangeIndexList != null && mChangeIndexList.size() != 0) {
             for (int i = 0; i < mChangeIndexList.size(); i++) {
@@ -342,7 +401,7 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
             }
             setDefaultScale(mStreamWidth, mStreamHeight, i);
             if (i < 19) {
-//                setPosition(TranslateTo.TOP_LEFT);
+                //设置时间水印位置
                 setPosition(0f + i * 1.5f, 0f);
                 str = time.substring(i, i + 1);
                 if (str.equals("-")) {
@@ -353,16 +412,24 @@ abstract public class BaseObjectFilterRender extends BaseFilterRender {
                     continue;
                 }
             } else if (size_left_top != 0 && i < 19 + size_left_top){
+                //设置左上角除时间水印的其他位置
                 setPosition(0f, (i - 18) * 4f);
                 str = "" + i;
             } else if (size_right_top != 0 && i < 19 + size_left_top + size_right_top) {
+                //设置右上角水印位置
                 setPosition(TranslateTo.TOP_RIGHT, i - 19 - size_left_top);
                 str = "" + i;
             } else if (size_left_bottom != 0 && i < 19 + size_left_top + size_right_top + size_left_bottom) {
+                //设置左下角水印位置
                 setPosition(TranslateTo.BOTTOM_LEFT, i - 18 - size_left_top - size_right_top);
                 str = "" + i;
-            } else if (size_right_bottom != 0) {
+            } else if (size_right_bottom != 0 && i < 19 + size_left_top + size_right_top + size_left_bottom + size_right_bottom) {
+                //设置右下角水印位置
                 setPosition(TranslateTo.BOTTOM_RIGHT, i - 18 - size_left_top - size_right_top - size_left_bottom);
+                str = "" + i;
+            } else {
+                //其他，含识别框
+                setPosition(TranslateTo.TOP_LEFT);
                 str = "" + i;
             }
 

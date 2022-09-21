@@ -839,6 +839,30 @@ public class BitmapUtils {
         return src == null || src.getWidth() == 0 || src.getHeight() == 0;
     }
 
+    //rect转图片
+    public static Bitmap rectToBitmap(Rect box, String name, String confidence) {
+        Bitmap bmp;
+        Canvas canvasTemp;
+        Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
+        p.setColor(Color.RED);
+        p.setStyle(Paint.Style.STROKE);
+        p.setTextSize(15f);
+
+        /*
+        下列一行代码，为OpenGlView设置屏幕最大Rect尺寸，DemoActivity中setDefaultScale()设置，为内存优化，缓解设备发烫考虑。
+        新增的Rect，绘制到opengl，要对原Rect依此比例进行缩放/旋转
+         */
+        //Rect box = new Rect(0, 0, 640, 480);
+
+        bmp = Bitmap.createBitmap(box.width(), box.height(), Bitmap.Config.ARGB_8888);
+        canvasTemp = new Canvas(bmp);
+        canvasTemp.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);//设置透明画布，无背景色
+        canvasTemp.drawRect(box, p);
+        canvasTemp.drawText(name, box.left, box.top + 15, p);
+        canvasTemp.drawText(confidence, box.left, box.top + 30, p);
+        return bmp;
+    }
+
     //文字转图片
         public static Bitmap textToBitmap(String msg) {
         Bitmap bmp;
